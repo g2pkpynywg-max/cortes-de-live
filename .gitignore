@@ -1,0 +1,13 @@
+# Raw livestreams and heavy media never go to git
+input/*
+!input/.gitkeep
+work/*
+!work/.gitkeep
+output/*
+!output/.gitkeep
+clips/*/assets/*.mp4
+clips/*/assets/*.wav
+clips/*/renders/
+template/renders/
+node_modules/
+.DS_Store

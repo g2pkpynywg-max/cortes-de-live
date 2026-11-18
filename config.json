@@ -1,0 +1,12 @@
+{
+  "language": "pt",
+  "clips": { "count": 3, "minSeconds": 30, "maxSeconds": 60 },
+  "output": { "width": 1080, "height": 1920, "fps": 30, "format": "mp4" },
+  "captions": {
+    "style": "pill-karaoke + keyword highlight",
+    "wordsPerGroup": [3, 5],
+    "highlightColor": "#FFD400",
+    "bottomOffsetPx": 640
+  },
+  "safeArea": { "topPx": 168, "bottomPx": 1330 }
+}

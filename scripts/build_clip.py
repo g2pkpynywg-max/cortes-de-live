@@ -63,7 +63,7 @@ def build_media(spec, d, tl):
          "-crf", "16", "-pix_fmt", "yuv420p", "-r", str(FPS), "-g", "15", "-movflags", "+faststart",
          f"{d}/assets/video.mp4"])
     # background plate: centre-cover 9:16 at low resolution (blurred later by media-treatment)
-    run(["ffmpeg", "-v", "error", "-y", "-i", spec["src"], "-an", "-vf", "crop=ih*9/16:ih,scale=360:640",
+    run(["ffmpeg", "-v", "error", "-y", "-i", spec["src"], "-an", "-vf", "crop=ih*9/16:ih,scale=360:640,gblur=sigma=14:steps=2",
          "-c:v", "libx264", "-preset", "medium", "-crf", "24", "-pix_fmt", "yuv420p", "-r", str(FPS), "-g", "15",
          "-movflags", "+faststart", f"{d}/assets/bg.mp4"])
     for c in spec.get("cutaways", []):
@@ -365,8 +365,10 @@ def main():
     open(f"{d}/index.html", "w").write(build_index(spec, tl))
     open(f"{d}/compositions/overlays.html", "w").write(build_overlays(spec, tl))
     open(f"{d}/compositions/captions.html", "w").write(build_captions(spec, tl))
-    # background blur through HyperFrames' deterministic media treatment (never a CSS filter)
-    subprocess.run(["node", "/root/.claude/skills/hyperframes/scripts/plugin-cli.mjs", "media-treatment",
+    # The background plate's blur is baked into assets/bg.mp4 at cut time (gblur): the
+    # media-treatment WebGL blur costs ~12 s/frame on a CPU-only renderer. Opt back in with --treatment.
+    if "--treatment" in sys.argv:
+      subprocess.run(["node", "/root/.claude/skills/hyperframes/scripts/plugin-cli.mjs", "media-treatment",
                     "--project", d, "--selector", ".bgv", "--grading", '{"effects":{"blur":0.7}}',
                     "--apply", "--json"], check=True, capture_output=True)
     print(f"{spec['id']}: duration {tl.duration:.2f}s, {len(tl.segs)} segments, {len(spec['captions'])} captions")

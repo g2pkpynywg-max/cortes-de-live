@@ -11,3 +11,7 @@ clips/*/renders/
 template/renders/
 node_modules/
 .DS_Store
+clips/*/.hyperframes/
+template/.hyperframes/
+clips/*/snapshots/
+__pycache__/

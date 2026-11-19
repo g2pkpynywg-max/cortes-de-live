@@ -1,0 +1,205 @@
+{
+  "id": "clip-03-lancamento",
+  "src": "work/src/lancamento.mov",
+  "windowStart": "0:16:00",
+  "stem": "work/stems/out/htdemucs/lancamento/vocals.wav",
+  "credit": "poofesure • live de GTA VI na Twitch",
+  "hook": {
+    "lines": [
+      "O segundo exato em que",
+      "o GTA 6 LIBEROU"
+    ],
+    "title": [
+      "O segundo exato em que o GTA 6 LIBEROU"
+    ],
+    "kw": [
+      "LIBEROU"
+    ],
+    "size": 80,
+    "titleSize": 50
+  },
+  "segments": [
+    {
+      "in": "0:16:03.50",
+      "out": "0:16:14.10",
+      "cropX": 40
+    },
+    {
+      "in": "0:16:28.70",
+      "out": "0:16:43.70",
+      "cropX": 40,
+      "pan": [
+        {
+          "at": "0:16:36.40",
+          "cropX": 480,
+          "dur": 0.8
+        }
+      ],
+      "zooms": [
+        {
+          "at": "0:16:36.30",
+          "scale": 1.1,
+          "hold": 1.6
+        }
+      ]
+    },
+    {
+      "in": "0:16:46.50",
+      "out": "0:16:47.70",
+      "cropX": 480
+    },
+    {
+      "in": "0:16:53.00",
+      "out": "0:17:04.00",
+      "cropX": 480,
+      "zooms": [
+        {
+          "at": "0:16:58.80",
+          "scale": 1.08,
+          "hold": 1.6
+        }
+      ]
+    }
+  ],
+  "numbers": [
+    {
+      "s": "0:16:28.70",
+      "t": "8",
+      "d": 0.46
+    },
+    {
+      "s": "0:16:29.16",
+      "t": "7",
+      "d": 0.68
+    },
+    {
+      "s": "0:16:29.84",
+      "t": "6",
+      "d": 0.94
+    },
+    {
+      "s": "0:16:30.78",
+      "t": "5",
+      "d": 0.9
+    },
+    {
+      "s": "0:16:31.68",
+      "t": "4",
+      "d": 0.96
+    },
+    {
+      "s": "0:16:32.64",
+      "t": "3",
+      "d": 1.1
+    },
+    {
+      "s": "0:16:33.74",
+      "t": "2",
+      "d": 1.4
+    },
+    {
+      "s": "0:16:35.14",
+      "t": "1",
+      "d": 1.16
+    }
+  ],
+  "stamps": [
+    {
+      "s": "0:16:36.30",
+      "d": 2.2,
+      "t": "LIBEROU!"
+    }
+  ],
+  "captions": [
+    {
+      "s": "0:16:05.88",
+      "e": "0:16:07.80",
+      "t": "Trinta.",
+      "kw": [
+        "trinta"
+      ]
+    },
+    {
+      "s": "0:16:07.88",
+      "e": "0:16:10.95",
+      "t": "Trinta segundos, mano.",
+      "kw": [
+        "segundos"
+      ]
+    },
+    {
+      "s": "0:16:11.10",
+      "e": "0:16:12.90",
+      "t": "Eu sonhei com esse dia.",
+      "kw": [
+        "sonhei"
+      ]
+    },
+    {
+      "s": "0:16:12.98",
+      "e": "0:16:14.10",
+      "t": "Sonhei com esse dia.",
+      "kw": [
+        "dia"
+      ]
+    },
+    {
+      "s": "0:16:35.25",
+      "e": "0:16:37.30",
+      "t": "(lendo o chat) “Não fiz a parada da Nova Zelândia,",
+      "kw": [
+        "chat"
+      ]
+    },
+    {
+      "s": "0:16:37.35",
+      "e": "0:16:39.50",
+      "t": "tô fora, divirta-se com o GTA”",
+      "kw": [
+        "GTA"
+      ]
+    },
+    {
+      "s": "0:16:41.20",
+      "e": "0:16:42.58",
+      "t": "Pronto pra jogar"
+    },
+    {
+      "s": "0:16:42.62",
+      "e": "0:16:43.70",
+      "t": "Grand Theft Auto 6.",
+      "kw": [
+        "Grand",
+        "Theft",
+        "Auto",
+        "6"
+      ]
+    },
+    {
+      "s": "0:16:46.70",
+      "e": "0:16:47.70",
+      "t": "É agora.",
+      "kw": [
+        "agora"
+      ]
+    },
+    {
+      "s": "0:16:53.42",
+      "e": "0:16:54.60",
+      "t": "É, vou deixar"
+    },
+    {
+      "s": "0:16:54.63",
+      "e": "0:16:56.30",
+      "t": "a narração desligada, por favor."
+    },
+    {
+      "s": "0:16:58.30",
+      "e": "0:17:00.40",
+      "t": "Ah, a Flórida.",
+      "kw": [
+        "Flórida"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,453 @@
+{
+ "id": "alan/clip-07-controle",
+ "language": "pt",
+ "wordsFile": "clips/alan/clip-07-controle/words.json",
+ "credit": "alanzoka • live de GTA 6 na Twitch",
+ "window": {
+  "top": 430,
+  "height": 900
+ },
+ "captionBottom": 1170,
+ "stampTop": 760,
+ "numTop": 760,
+ "sources": [
+  {
+   "id": "c7a",
+   "file": "work/alan/src/c7a.mov",
+   "stem": "work/alan/stems/htdemucs/c7a/vocals.wav",
+   "start": 9890.0
+  },
+  {
+   "id": "c7b",
+   "file": "work/alan/src/c7b.mov",
+   "stem": "work/alan/stems/htdemucs/c7b/vocals.wav",
+   "start": 37160.032999999996
+  }
+ ],
+ "hook": {
+  "lines": [
+   "A culpa é SEMPRE",
+   "do controle"
+  ],
+  "title": [
+   "A culpa é SEMPRE do controle"
+  ],
+  "kw": [
+   "SEMPRE",
+   "controle"
+  ],
+  "size": 70,
+  "titleSize": 46,
+  "top": 290,
+  "noBg": true
+ },
+ "labels": [
+  {
+   "s": "10:19:51.85",
+   "d": 2.4,
+   "t": "7 HORAS DEPOIS…"
+  }
+ ],
+ "stamps": [
+  {
+   "s": "2:46:04.90",
+   "d": 1.3,
+   "t": "NERFADO",
+   "size": 76,
+   "inScale": 1.2
+  }
+ ],
+ "segments": [
+  {
+   "src": "c7a",
+   "in": "2:45:09.30",
+   "out": "2:45:13.80",
+   "panels": [
+    {
+     "src": [
+      194,
+      0,
+      1296,
+      1080
+     ],
+     "dst": [
+      0,
+      0,
+      1080,
+      900
+     ]
+    },
+    {
+     "src": [
+      1490,
+      274,
+      416,
+      262
+     ],
+     "dst": [
+      650,
+      16,
+      414,
+      261
+     ],
+     "cls": "inset"
+    }
+   ]
+  },
+  {
+   "src": "c7a",
+   "in": "2:45:28.30",
+   "out": "2:45:34.40",
+   "panels": [
+    {
+     "src": [
+      194,
+      0,
+      1296,
+      1080
+     ],
+     "dst": [
+      0,
+      0,
+      1080,
+      900
+     ]
+    },
+    {
+     "src": [
+      1490,
+      274,
+      416,
+      262
+     ],
+     "dst": [
+      650,
+      16,
+      414,
+      261
+     ],
+     "cls": "inset"
+    }
+   ],
+   "zooms": [
+    {
+     "at": "2:45:32.96",
+     "scale": 1.07,
+     "hold": 1.2
+    }
+   ]
+  },
+  {
+   "src": "c7a",
+   "in": "2:45:42.50",
+   "out": "2:45:50.60",
+   "panels": [
+    {
+     "src": [
+      194,
+      0,
+      1296,
+      1080
+     ],
+     "dst": [
+      0,
+      0,
+      1080,
+      900
+     ]
+    },
+    {
+     "src": [
+      1490,
+      274,
+      416,
+      262
+     ],
+     "dst": [
+      650,
+      16,
+      414,
+      261
+     ],
+     "cls": "inset"
+    }
+   ]
+  },
+  {
+   "src": "c7a",
+   "in": "2:45:52.60",
+   "out": "2:46:06.20",
+   "panels": [
+    {
+     "src": [
+      1490,
+      274,
+      416,
+      216
+     ],
+     "dst": [
+      0,
+      0,
+      1080,
+      561
+     ]
+    },
+    {
+     "src": [
+      420,
+      300,
+      1080,
+      339
+     ],
+     "dst": [
+      0,
+      561,
+      1080,
+      339
+     ]
+    }
+   ],
+   "zooms": [
+    {
+     "at": "2:45:53.56",
+     "scale": 1.06,
+     "hold": 1.4
+    },
+    {
+     "at": "2:46:04.50",
+     "scale": 1.08,
+     "hold": 1.4
+    }
+   ]
+  },
+  {
+   "src": "c7b",
+   "in": "10:19:51.80",
+   "out": "10:20:02.00",
+   "panels": [
+    {
+     "src": [
+      194,
+      0,
+      1296,
+      1080
+     ],
+     "dst": [
+      0,
+      0,
+      1080,
+      900
+     ]
+    },
+    {
+     "src": [
+      1490,
+      274,
+      416,
+      262
+     ],
+     "dst": [
+      650,
+      16,
+      414,
+      261
+     ],
+     "cls": "inset"
+    }
+   ],
+   "zooms": [
+    {
+     "at": "10:19:55.75",
+     "scale": 1.08,
+     "hold": 1.6
+    }
+   ]
+  },
+  {
+   "src": "c7b",
+   "in": "10:20:29.90",
+   "out": "10:20:38.20",
+   "panels": [
+    {
+     "src": [
+      194,
+      0,
+      1296,
+      1080
+     ],
+     "dst": [
+      0,
+      0,
+      1080,
+      900
+     ]
+    },
+    {
+     "src": [
+      1490,
+      274,
+      416,
+      262
+     ],
+     "dst": [
+      650,
+      16,
+      414,
+      261
+     ],
+     "cls": "inset"
+    }
+   ],
+   "zooms": [
+    {
+     "at": "10:20:36.64",
+     "scale": 1.08,
+     "hold": 1.4
+    }
+   ]
+  }
+ ],
+ "captions": [
+  {
+   "s": "2:45:09.51",
+   "e": "2:45:11.55",
+   "t": "Meu Deus, meu Deus, eu vou morrer, eu vou morrer!",
+   "kw": [
+    "morrer"
+   ]
+  },
+  {
+   "s": "2:45:11.61",
+   "e": "2:45:12.90",
+   "t": "Não, não, não, não, não!",
+   "kw": []
+  },
+  {
+   "s": "2:45:12.93",
+   "e": "2:45:13.80",
+   "t": "É muito tira!",
+   "kw": [
+    "tira"
+   ]
+  },
+  {
+   "s": "2:45:28.46",
+   "e": "2:45:30.75",
+   "t": "Cara, deve ser esse o Fênix!",
+   "kw": [
+    "Fênix"
+   ]
+  },
+  {
+   "s": "2:45:30.82",
+   "e": "2:45:32.90",
+   "t": "Entra rápido! Entra rápido!",
+   "kw": [
+    "rápido"
+   ]
+  },
+  {
+   "s": "2:45:32.96",
+   "e": "2:45:34.40",
+   "t": "Pelo amor de Deus, eu não posso morrer, eu tô sem vida!",
+   "kw": [
+    "sem",
+    "vida"
+   ]
+  },
+  {
+   "s": "2:45:42.60",
+   "e": "2:45:44.20",
+   "t": "Sai, sai, sai, sai, sai, sai, sai, sai!",
+   "kw": [
+    "Sai"
+   ]
+  },
+  {
+   "s": "2:45:52.76",
+   "e": "2:45:55.65",
+   "t": "Cara, vocês sabem que eu só morri porque eu tô no controle, né?",
+   "kw": [
+    "controle"
+   ]
+  },
+  {
+   "s": "2:45:55.72",
+   "e": "2:45:59.90",
+   "t": "Se eu tivesse o mouse no teclado, mano…",
+   "kw": [
+    "mouse",
+    "teclado"
+   ]
+  },
+  {
+   "s": "2:45:59.95",
+   "e": "2:46:04.40",
+   "t": "Eu tava assim, em outro mundo já, velho.",
+   "kw": [
+    "outro",
+    "mundo"
+   ]
+  },
+  {
+   "s": "2:46:04.50",
+   "e": "2:46:06.20",
+   "t": "Infelizmente, me fui nerfado, mano.",
+   "kw": [
+    "nerfado"
+   ]
+  },
+  {
+   "s": "10:19:52.01",
+   "e": "10:19:55.20",
+   "t": "Meu Deus, meu Deus…",
+   "kw": []
+  },
+  {
+   "s": "10:19:55.29",
+   "e": "10:19:57.30",
+   "t": "Cara, o controle tem que ser abolido da face da terra,",
+   "kw": [
+    "controle",
+    "abolido"
+   ]
+  },
+  {
+   "s": "10:19:57.35",
+   "e": "10:19:59.25",
+   "t": "sem brincadeira.",
+   "kw": []
+  },
+  {
+   "s": "10:19:59.33",
+   "e": "10:20:02.00",
+   "t": "Quem vem pra jogar no controle não estava num dia bom, velho.",
+   "kw": [
+    "controle"
+   ]
+  },
+  {
+   "s": "10:20:30.06",
+   "e": "10:20:33.70",
+   "t": "Meu Deus, eu explodi essa moto, não tem gasolina nem motor, vazou o tanque.",
+   "kw": [
+    "gasolina"
+   ]
+  },
+  {
+   "s": "10:20:33.84",
+   "e": "10:20:36.60",
+   "t": "Calma, calma, mano,",
+   "kw": []
+  },
+  {
+   "s": "10:20:36.64",
+   "e": "10:20:38.20",
+   "t": "eu explodi a moto, tá sem gasolina.",
+   "kw": [
+    "sem",
+    "gasolina"
+   ]
+  }
+ ]
+}

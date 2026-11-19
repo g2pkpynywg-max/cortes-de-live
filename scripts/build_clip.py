@@ -339,7 +339,7 @@ def build_overlays(spec, tl):
     for i, st in enumerate(spec.get("stamps", [])):
         t = tl.map(st["s"])
         extra.append(f'      <div class="stamp" id="st{i}" style="font-size:{st.get("size", 120)}px">{esc(st["t"])}</div>')
-        js.append(f'    tl.fromTo("#st{i}", {{ opacity: 0, scale: 2.6, rotation: -8 }}, {{ opacity: 1, scale: 1, rotation: -4, duration: 0.25, ease: "back.out(2.2)" }}, {t});')
+        js.append(f'    tl.fromTo("#st{i}", {{ opacity: 0, scale: {st.get("inScale", 2.6)}, rotation: -8 }}, {{ opacity: 1, scale: 1, rotation: -4, duration: 0.25, ease: "back.out(2.2)" }}, {t});')
         js.append(f'    tl.to("#st{i}", {{ scale: 1.06, duration: {round(st["d"] - 0.45, 3)}, ease: "sine.inOut" }}, {round(t + 0.25, 3)});')
         js.append(f'    tl.to("#st{i}", {{ opacity: 0, duration: 0.2 }}, {round(t + st["d"] - 0.2, 3)});')
     for i, lb in enumerate(spec.get("labels", [])):  # chapter tag, e.g. "2H36 DE LIVE"

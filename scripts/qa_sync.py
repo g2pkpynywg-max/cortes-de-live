@@ -18,7 +18,7 @@ for s, e, t in caps:
     inside = [w for w in words if w[0] >= s - 0.6 and w[0] < e]
     if inside: offs.append(inside[0][0] - s)
 for w in words:  # speech with no caption on screen (numbers handled as overlay)
-    if not any(s - 0.25 <= w[0] <= e + 0.1 for s, e, _ in caps) and not re.fullmatch(r"\d+[,.]?|one|two|three|four|five|six|seven|eight|play|the|game\.?", w[2].lower()):
+    if not any(s - 0.25 <= w[0] <= e + 0.1 for s, e, _ in caps) and not re.fullmatch(r"\d+[,.]?|one|two|three|four|five|six|seven|eight|play|the|game\.?", w[2].lower()) and not spec.get("ignoreUncaptioned"):
         uncovered.append(f"{w[0]:.2f}s '{w[2]}'")
 offs = np.array(offs)
 print(f"{spec['id']}: audio {dur:.2f}s vs timeline {tl.duration:.2f}s | captions {len(caps)} | "

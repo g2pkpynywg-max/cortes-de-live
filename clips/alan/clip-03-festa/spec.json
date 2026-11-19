@@ -1,0 +1,372 @@
+{
+ "id": "alan/clip-03-festa",
+ "language": "pt",
+ "wordsFile": "clips/alan/clip-03-festa/words.json",
+ "credit": "alanzoka • live de GTA 6 na Twitch",
+ "window": {
+  "top": 430,
+  "height": 900
+ },
+ "captionBottom": 1100,
+ "stampTop": 760,
+ "numTop": 760,
+ "sources": [
+  {
+   "id": "c3",
+   "file": "work/alan/src/c3.mov",
+   "stem": "work/alan/stems/htdemucs/c3/vocals.wav",
+   "start": 35590.032999999996,
+   "sfx": {
+    "stems": [
+     "work/alan/stems/htdemucs/c3/drums.wav",
+     "work/alan/stems/htdemucs/c3/other.wav",
+     "work/alan/stems/htdemucs/c3/bass.wav"
+    ],
+    "gainDb": -4
+   }
+  }
+ ],
+ "hook": {
+  "lines": [
+   "Invadiu a festa",
+   "ERRADA no GTA 6"
+  ],
+  "title": [
+   "Invadiu a festa ERRADA no GTA 6"
+  ],
+  "kw": [
+   "ERRADA"
+  ],
+  "size": 72,
+  "titleSize": 46,
+  "top": 290,
+  "noBg": true
+ },
+ "stamps": [
+  {
+   "s": "9:54:01.13",
+   "d": 1.6,
+   "t": "POPÓ?!",
+   "size": 120
+  }
+ ],
+ "segments": [
+  {
+   "src": "c3",
+   "in": "9:53:44.90",
+   "out": "9:54:08.60",
+   "panels": [
+    {
+     "src": [
+      500,
+      420,
+      792,
+      660
+     ],
+     "dst": [
+      0,
+      0,
+      1080,
+      900
+     ]
+    },
+    {
+     "src": [
+      1490,
+      274,
+      416,
+      262
+     ],
+     "dst": [
+      650,
+      16,
+      414,
+      261
+     ],
+     "cls": "inset"
+    }
+   ],
+   "zooms": [
+    {
+     "at": "9:54:00.89",
+     "scale": 1.07,
+     "hold": 1.4
+    }
+   ]
+  },
+  {
+   "src": "c3",
+   "in": "9:54:13.40",
+   "out": "9:54:22.60",
+   "panels": [
+    {
+     "src": [
+      500,
+      420,
+      792,
+      660
+     ],
+     "dst": [
+      0,
+      0,
+      1080,
+      900
+     ]
+    },
+    {
+     "src": [
+      1490,
+      274,
+      416,
+      262
+     ],
+     "dst": [
+      650,
+      16,
+      414,
+      261
+     ],
+     "cls": "inset"
+    }
+   ],
+   "zooms": [
+    {
+     "at": "9:54:16.44",
+     "scale": 1.07,
+     "hold": 1.2
+    }
+   ]
+  },
+  {
+   "src": "c3",
+   "in": "9:54:29.00",
+   "out": "9:54:41.00",
+   "panels": [
+    {
+     "src": [
+      500,
+      420,
+      792,
+      660
+     ],
+     "dst": [
+      0,
+      0,
+      1080,
+      900
+     ]
+    },
+    {
+     "src": [
+      1490,
+      274,
+      416,
+      262
+     ],
+     "dst": [
+      650,
+      16,
+      414,
+      261
+     ],
+     "cls": "inset"
+    }
+   ]
+  },
+  {
+   "src": "c3",
+   "in": "9:54:49.20",
+   "out": "9:54:51.30",
+   "panels": [
+    {
+     "src": [
+      500,
+      420,
+      792,
+      660
+     ],
+     "dst": [
+      0,
+      0,
+      1080,
+      900
+     ]
+    },
+    {
+     "src": [
+      1490,
+      274,
+      416,
+      262
+     ],
+     "dst": [
+      650,
+      16,
+      414,
+      261
+     ],
+     "cls": "inset"
+    }
+   ]
+  }
+ ],
+ "captions": [
+  {
+   "s": "9:53:45.53",
+   "e": "9:53:46.90",
+   "t": "Caralho!",
+   "kw": [
+    "Caralho"
+   ]
+  },
+  {
+   "s": "9:53:46.97",
+   "e": "9:53:49.10",
+   "t": "Não, aí você viajou, aí você viajou pra caralho.",
+   "kw": [
+    "viajou"
+   ]
+  },
+  {
+   "s": "9:53:50.47",
+   "e": "9:53:52.80",
+   "t": "Vai pra casa do caralho, porra, aí você viajou, aí você viajou.",
+   "kw": [
+    "viajou"
+   ]
+  },
+  {
+   "s": "9:53:52.85",
+   "e": "9:53:54.15",
+   "t": "Você é o outro, você é o…",
+   "kw": []
+  },
+  {
+   "s": "9:53:54.19",
+   "e": "9:53:56.80",
+   "t": "Não, não, não, você viajou, você viajou…",
+   "kw": [
+    "viajou"
+   ]
+  },
+  {
+   "s": "9:53:56.85",
+   "e": "9:53:58.80",
+   "t": "Você viajou, cara, você viajou!",
+   "kw": [
+    "viajou"
+   ]
+  },
+  {
+   "s": "9:53:59.39",
+   "e": "9:54:00.85",
+   "t": "Mano, o cara é bom, esse cara é o quê?",
+   "kw": [
+    "bom"
+   ]
+  },
+  {
+   "s": "9:54:00.89",
+   "e": "9:54:03.60",
+   "t": "Acelino Popó Freitas, mano!",
+   "kw": [
+    "Popó",
+    "Freitas"
+   ]
+  },
+  {
+   "s": "9:54:03.67",
+   "e": "9:54:05.60",
+   "t": "O que é isso, mano? É o Popó!",
+   "kw": [
+    "Popó"
+   ]
+  },
+  {
+   "s": "9:54:05.67",
+   "e": "9:54:08.60",
+   "t": "O que é isso? É o Popó!",
+   "kw": [
+    "Popó"
+   ]
+  },
+  {
+   "s": "9:54:13.62",
+   "e": "9:54:16.40",
+   "t": "Boa, boa, nossa, que é o doido na piscina, mano!",
+   "kw": [
+    "piscina"
+   ]
+  },
+  {
+   "s": "9:54:16.44",
+   "e": "9:54:19.50",
+   "t": "Mano, o cara voltou da piscina!",
+   "kw": [
+    "voltou"
+   ]
+  },
+  {
+   "s": "9:54:21.59",
+   "e": "9:54:22.60",
+   "t": "Mano, eu tô sendo arregaçado!",
+   "kw": [
+    "arregaçado"
+   ]
+  },
+  {
+   "s": "9:54:29.21",
+   "e": "9:54:31.90",
+   "t": "O outro vai também. Vem, vem, vem, vem!",
+   "kw": [
+    "vem"
+   ]
+  },
+  {
+   "s": "9:54:31.93",
+   "e": "9:54:33.95",
+   "t": "Toma, toma, toma, toma, toma!",
+   "kw": [
+    "toma"
+   ]
+  },
+  {
+   "s": "9:54:34.01",
+   "e": "9:54:36.10",
+   "t": "Vai pra porra da piscina de novo, seu filho da puta!",
+   "kw": [
+    "piscina"
+   ]
+  },
+  {
+   "s": "9:54:36.15",
+   "e": "9:54:37.40",
+   "t": "Você é o outro, você é o outro, vai!",
+   "kw": []
+  },
+  {
+   "s": "9:54:37.43",
+   "e": "9:54:39.45",
+   "t": "Larga meu parceiro, larga meu parceiro, toma!",
+   "kw": [
+    "parceiro"
+   ]
+  },
+  {
+   "s": "9:54:39.53",
+   "e": "9:54:41.00",
+   "t": "Toma, larga meu parceiro, toma!",
+   "kw": [
+    "parceiro"
+   ]
+  },
+  {
+   "s": "9:54:49.39",
+   "e": "9:54:51.30",
+   "t": "Vai! Desmaiou o cara, mano, desmaiou o cara.",
+   "kw": [
+    "desmaiou"
+   ]
+  }
+ ]
+}

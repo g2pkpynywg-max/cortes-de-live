@@ -1,0 +1,53 @@
+import sys; sys.path.insert(0, "scripts/specs")
+from alan_common import *
+
+segs = [
+    {"src": "c5a", "in": "2:36:03.80", "out": "2:36:11.60", "panels": G(),
+     "zooms": [{"at": "2:36:07.60", "scale": 1.08, "hold": 1.4}]},
+    {"src": "c5b", "in": "4:01:03.30", "out": "4:01:16.90", "panels": G(),
+     "zooms": [{"at": "4:01:13.00", "scale": 1.08, "hold": 1.4}]},
+    {"src": "c5c", "in": "10:50:38.40", "out": "10:50:47.10", "panels": G(),
+     "zooms": [{"at": "10:50:40.09", "scale": 1.07, "hold": 1.4}]},
+    {"src": "c5c", "in": "10:50:55.80", "out": "10:50:59.10", "panels": G(), "noFlash": True,
+     "zooms": [{"at": "10:50:56.35", "scale": 1.1, "hold": 1.6}]},
+    {"src": "c5d", "in": "12:25:39.60", "out": "12:25:49.40", "panels": G()},
+    {"src": "c5e", "in": "13:52:58.50", "out": "13:53:01.70", "panels": G()},
+    {"src": "c5e", "in": "13:53:16.80", "out": "13:53:19.60", "panels": G()},
+    {"src": "c5e", "in": "13:54:07.40", "out": "13:54:14.00", "panels": G(),
+     "zooms": [{"at": "13:54:12.67", "scale": 1.1, "hold": 1.2}]},
+]
+caps = [
+    C("2:36:03.96", "2:36:04.85", "Desabilitei! Você viu?", ["Desabilitei"]),
+    C("2:36:04.90", "2:36:05.80", "Eu não matei ele!", ["não", "matei"]),
+    C("2:36:05.84", "2:36:07.55", "Olha lá, ele ficou com o joelho doendo!", ["joelho"]),
+    C("2:36:07.60", "2:36:11.60", "Mano, eu não mato ninguém nesse jogo, mano.", ["ninguém"]),
+    C("4:01:03.51", "4:01:05.45", "Hostil? Eu não sou hostil!", ["hostil"]),
+    C("4:01:05.49", "4:01:07.10", "Eu dei um tiro na perna dele, cara.", ["perna"]),
+    C("4:01:07.17", "4:01:10.10", "Isso é hostil?", ["hostil"]),
+    C("4:01:10.18", "4:01:12.90", "Meu perfil foi para hostil, mano.", ["hostil"]),
+    C("4:01:13.00", "4:01:15.40", "Eu não matei ele, mano!", ["não", "matei"]),
+    C("4:01:15.48", "4:01:16.90", "Isso não é matar, cara.", ["matar"]),
+    C("10:50:38.57", "10:50:43.35", "Eu não mato ninguém, cara, eu sou um cara honesto.", ["honesto"]),
+    C("10:50:43.41", "10:50:45.60", "O cara tá vivo, ele só desmaiou.", ["desmaiou"]),
+    C("10:50:45.65", "10:50:47.10", "O jogo mesmo falou: não letal.", ["não", "letal"]),
+    C("10:50:55.95", "10:50:58.10", "Tem mais droga por aqui pra gente pegar?", ["droga"]),
+    C("10:50:58.17", "10:50:59.10", "Mano, tem mais uma aqui.", ["mais", "uma"]),
+    C("12:25:39.77", "12:25:41.65", "Eu não tenho essa vibe, mano.", ["vibe"]),
+    C("12:25:41.69", "12:25:44.20", "Eu tenho quase 40 anos, mano.", ["40", "anos"]),
+    C("12:25:44.23", "12:25:47.45", "Eu não fico mais matando geral, velho.", ["matando", "geral"]),
+    C("12:25:47.53", "12:25:49.40", "Matava geral quando eu tinha uns 12 anos, mano.", ["12", "anos"]),
+    C("13:52:58.65", "13:53:00.20", "Eu não tô matando ninguém, mano.", ["ninguém"]),
+    C("13:53:00.23", "13:53:01.70", "Quem tá falando que eu tô matando tá viajando.", ["viajando"]),
+    C("13:53:16.93", "13:53:19.60", "Tô matando alguns, vai, não dá pra mentir também, né.", ["alguns"]),
+    C("13:54:11.51", "13:54:14.00", "É chato… eu matei umas pessoas mesmo.", ["matei", "pessoas"]),
+]
+write("alan/clip-05-naomato", {
+    "sources": [source("c5a"), source("c5b"), source("c5c", sfx=-6), source("c5d"), source("c5e")],
+    "hook": {"lines": ["“Eu não mato", "NINGUÉM nesse jogo”"], "title": ["“Eu não mato NINGUÉM nesse jogo”"],
+             "kw": ["NINGUÉM"], "size": 70, "titleSize": 46, "top": 290, "noBg": True},
+    "labels": [{"s": "2:36:03.85", "d": 2.0, "t": "2H36 DE LIVE"}, {"s": "4:01:03.35", "d": 2.0, "t": "4H01 DE LIVE"},
+               {"s": "10:50:38.45", "d": 2.0, "t": "10H50 DE LIVE"}, {"s": "12:25:39.65", "d": 2.0, "t": "12H25 DE LIVE"},
+               {"s": "13:52:58.55", "d": 2.0, "t": "13H52 DE LIVE"}],
+    "stamps": [{"s": "13:54:12.70", "d": 1.3, "t": "OPS…", "size": 120}],
+    "segments": segs, "captions": caps,
+}, ["c5a", "c5b", "c5c", "c5d", "c5e"])

@@ -1,0 +1,399 @@
+{
+ "id": "alan/clip-04-celular",
+ "language": "pt",
+ "wordsFile": "clips/alan/clip-04-celular/words.json",
+ "credit": "alanzoka • live de GTA 6 na Twitch",
+ "window": {
+  "top": 430,
+  "height": 900
+ },
+ "captionBottom": 1170,
+ "stampTop": 760,
+ "numTop": 760,
+ "sources": [
+  {
+   "id": "c4a",
+   "file": "work/alan/src/c4a.mov",
+   "stem": "work/alan/stems/htdemucs/c4a/vocals.wav",
+   "start": 19750.0
+  },
+  {
+   "id": "c4b",
+   "file": "work/alan/src/c4b.mov",
+   "stem": "work/alan/stems/htdemucs/c4b/vocals.wav",
+   "start": 47490.032999999996
+  }
+ ],
+ "hook": {
+  "lines": [
+   "Viciado no TikTok…",
+   "DENTRO do GTA 6"
+  ],
+  "title": [
+   "Viciado no TikTok… DENTRO do GTA 6"
+  ],
+  "kw": [
+   "TikTok",
+   "DENTRO"
+  ],
+  "size": 70,
+  "titleSize": 46,
+  "top": 290,
+  "noBg": true
+ },
+ "labels": [
+  {
+   "s": "13:11:53.00",
+   "d": 2.4,
+   "t": "8 HORAS DEPOIS…"
+  }
+ ],
+ "stamps": [
+  {
+   "s": "13:15:46.09",
+   "d": 1.6,
+   "t": "PASSOU!",
+   "size": 100
+  }
+ ],
+ "segments": [
+  {
+   "src": "c4a",
+   "in": "5:29:35.40",
+   "out": "5:29:54.70",
+   "panels": [
+    {
+     "src": [
+      194,
+      0,
+      1296,
+      1080
+     ],
+     "dst": [
+      0,
+      0,
+      1080,
+      900
+     ]
+    },
+    {
+     "src": [
+      1490,
+      274,
+      416,
+      262
+     ],
+     "dst": [
+      650,
+      16,
+      414,
+      261
+     ],
+     "cls": "inset"
+    }
+   ],
+   "zooms": [
+    {
+     "at": "5:29:38.31",
+     "scale": 1.07,
+     "hold": 1.4
+    },
+    {
+     "at": "5:29:47.81",
+     "scale": 1.08,
+     "hold": 1.4
+    }
+   ]
+  },
+  {
+   "src": "c4b",
+   "in": "13:11:52.90",
+   "out": "13:11:57.40",
+   "panels": [
+    {
+     "src": [
+      194,
+      0,
+      1296,
+      1080
+     ],
+     "dst": [
+      0,
+      0,
+      1080,
+      900
+     ]
+    },
+    {
+     "src": [
+      1490,
+      274,
+      416,
+      262
+     ],
+     "dst": [
+      650,
+      16,
+      414,
+      261
+     ],
+     "cls": "inset"
+    }
+   ]
+  },
+  {
+   "src": "c4b",
+   "in": "13:13:09.50",
+   "out": "13:13:18.70",
+   "panels": [
+    {
+     "src": [
+      194,
+      0,
+      1296,
+      1080
+     ],
+     "dst": [
+      0,
+      0,
+      1080,
+      900
+     ]
+    },
+    {
+     "src": [
+      1490,
+      274,
+      416,
+      262
+     ],
+     "dst": [
+      650,
+      16,
+      414,
+      261
+     ],
+     "cls": "inset"
+    }
+   ]
+  },
+  {
+   "src": "c4b",
+   "in": "13:15:45.50",
+   "out": "13:16:08.20",
+   "panels": [
+    {
+     "src": [
+      194,
+      0,
+      1296,
+      1080
+     ],
+     "dst": [
+      0,
+      0,
+      1080,
+      900
+     ]
+    },
+    {
+     "src": [
+      1490,
+      274,
+      416,
+      262
+     ],
+     "dst": [
+      650,
+      16,
+      414,
+      261
+     ],
+     "cls": "inset"
+    }
+   ],
+   "zooms": [
+    {
+     "at": "13:15:54.25",
+     "scale": 1.07,
+     "hold": 1.4
+    },
+    {
+     "at": "13:16:06.53",
+     "scale": 1.08,
+     "hold": 1.4
+    }
+   ]
+  }
+ ],
+ "captions": [
+  {
+   "s": "5:29:37.20",
+   "e": "5:29:38.30",
+   "t": "Cara, cansei, chat.",
+   "kw": []
+  },
+  {
+   "s": "5:29:38.31",
+   "e": "5:29:39.20",
+   "t": "Fiquei três horas no celular.",
+   "kw": [
+    "três",
+    "horas",
+    "celular"
+   ]
+  },
+  {
+   "s": "5:29:39.23",
+   "e": "5:29:40.50",
+   "t": "Mano, nem lembro o que eu ia fazer, mano.",
+   "kw": []
+  },
+  {
+   "s": "5:29:40.55",
+   "e": "5:29:43.95",
+   "t": "Ah, lembrei. Eu ia chamar o cara pra consertar meu carro, mano.",
+   "kw": [
+    "carro"
+   ]
+  },
+  {
+   "s": "5:29:44.03",
+   "e": "5:29:46.95",
+   "t": "Nossa Senhora, mano. Fiquei três horas no celular, tá esquecido.",
+   "kw": [
+    "três",
+    "horas"
+   ]
+  },
+  {
+   "s": "5:29:47.09",
+   "e": "5:29:49.60",
+   "t": "Cê viu, mano? Entrei no doom scrolling, mano.",
+   "kw": [
+    "doom",
+    "scrolling"
+   ]
+  },
+  {
+   "s": "5:29:51.95",
+   "e": "5:29:54.70",
+   "t": "Eu fiquei scrollando e não parei mais, velho.",
+   "kw": [
+    "scrollando"
+   ]
+  },
+  {
+   "s": "13:11:53.05",
+   "e": "13:11:55.75",
+   "t": "Mano, enquanto a gente tá aqui, vamos scrollar no TikTok,",
+   "kw": [
+    "TikTok"
+   ]
+  },
+  {
+   "s": "13:11:55.79",
+   "e": "13:11:57.40",
+   "t": "velho, pra ver o que tem de novidade, né?",
+   "kw": [
+    "novidade"
+   ]
+  },
+  {
+   "s": "13:13:09.61",
+   "e": "13:13:13.95",
+   "t": "“Então quer dizer que se eu causar um probleminha em Ocean Beach, vou dar de cara com você.",
+   "kw": [
+    "probleminha"
+   ]
+  },
+  {
+   "s": "13:13:14.01",
+   "e": "13:13:15.70",
+   "t": "Fechado, rico, curte.",
+   "kw": []
+  },
+  {
+   "s": "13:13:15.79",
+   "e": "13:13:17.75",
+   "t": "Já volto, vou cometer um bilhão de crimes.",
+   "kw": [
+    "bilhão",
+    "crimes"
+   ]
+  },
+  {
+   "s": "13:13:17.83",
+   "e": "13:13:18.70",
+   "t": "Linguinha, linguinha, linguinha.”",
+   "kw": [
+    "Linguinha"
+   ]
+  },
+  {
+   "s": "13:15:45.75",
+   "e": "13:15:48.30",
+   "t": "Mano, acho que eu passei minha casa, chat.",
+   "kw": [
+    "passei",
+    "casa"
+   ]
+  },
+  {
+   "s": "13:15:48.37",
+   "e": "13:15:50.55",
+   "t": "Acho que eu passei minha casa, mano.",
+   "kw": [
+    "casa"
+   ]
+  },
+  {
+   "s": "13:15:50.61",
+   "e": "13:15:54.20",
+   "t": "Calma, eu estava muito focado aqui no TikTok, mano.",
+   "kw": [
+    "TikTok"
+   ]
+  },
+  {
+   "s": "13:15:54.25",
+   "e": "13:15:57.05",
+   "t": "Passei minha casa, velho.",
+   "kw": [
+    "casa"
+   ]
+  },
+  {
+   "s": "13:15:57.11",
+   "e": "13:15:59.95",
+   "t": "Cara, ele nem viu o tempo passar, mano. Que loucura!",
+   "kw": [
+    "tempo",
+    "passar"
+   ]
+  },
+  {
+   "s": "13:16:00.03",
+   "e": "13:16:03.20",
+   "t": "Mano, eu estava lá scrollando do nada, pau.",
+   "kw": [
+    "scrollando"
+   ]
+  },
+  {
+   "s": "13:16:03.27",
+   "e": "13:16:06.45",
+   "t": "Cheguei na minha casa. Nem a minha casa, na real.",
+   "kw": []
+  },
+  {
+   "s": "13:16:06.53",
+   "e": "13:16:08.20",
+   "t": "Acabei de perceber que aqui não é a minha casa.",
+   "kw": [
+    "não",
+    "é"
+   ]
+  }
+ ]
+}

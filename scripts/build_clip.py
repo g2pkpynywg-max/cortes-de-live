@@ -57,7 +57,82 @@ def run(cmd):
     subprocess.run(cmd, check=True)
 
 
+def sources(spec):
+    """Single-window specs keep src/stem/windowStart; multi-window specs list "sources"."""
+    if "sources" in spec:
+        return {x["id"]: x for x in spec["sources"]}
+    return {"video": {"id": "video", "file": spec["src"], "stem": spec["stem"], "start": spec["windowStart"]}}
+
+
+def seg_src(spec, s):
+    srcs = sources(spec)
+    return srcs[s.get("src", next(iter(srcs)))]
+
+
+def build_media_multi(spec, d, tl):
+    os.makedirs(f"{d}/assets", exist_ok=True)
+    srcs = sources(spec)
+    for sid, x in srcs.items():
+        run(["ffmpeg", "-v", "error", "-y", "-i", x["file"], "-an", "-c:v", "libx264", "-preset", "medium",
+             "-crf", "16", "-pix_fmt", "yuv420p", "-r", str(FPS), "-g", "15", "-movflags", "+faststart",
+             f"{d}/assets/{sid}.mp4"])
+        run(["ffmpeg", "-v", "error", "-y", "-i", x["file"], "-an", "-vf", "crop=ih*9/16:ih,scale=360:640,gblur=sigma=14:steps=2",
+             "-c:v", "libx264", "-preset", "medium", "-crf", "24", "-pix_fmt", "yuv420p", "-r", str(FPS), "-g", "15",
+             "-movflags", "+faststart", f"{d}/assets/bg_{sid}.mp4"])
+    ins, filt, parts = [], [], []
+    order = list(srcs)
+    for sid in order:
+        x = srcs[sid]
+        ins += ["-i", x["stem"]]
+        sfx = x.get("sfx")  # optional: list of non-vocal stems to keep (game SFX), with gain in dB
+        if sfx:
+            for f in sfx["stems"]:
+                ins += ["-i", f]
+    # build per-source mixed input labels
+    k = 0
+    labels = {}
+    for sid in order:
+        x = srcs[sid]
+        sfx = x.get("sfx")
+        if sfx:
+            n = 1 + len(sfx["stems"])
+            g = 10 ** (sfx.get("gainDb", -6) / 20)
+            mixin = "".join(f"[{k + j}:a]" for j in range(n))
+            weights = " ".join(["1"] + [f"{g:.3f}"] * (n - 1))
+            filt.append(f"{mixin}amix=inputs={n}:weights={weights}:normalize=0[m_{sid}]")
+            labels[sid] = f"m_{sid}"
+            k += n
+        else:
+            labels[sid] = f"{k}:a"
+            k += 1
+    # each segment may reuse a source label; split them
+    uses = {}
+    for s in tl.segs:
+        sid = seg_src(spec, s)["id"]; uses[sid] = uses.get(sid, 0) + 1
+    split = {}
+    for sid, n in uses.items():
+        outs = "".join(f"[{sid}_{j}]" for j in range(n))
+        filt.append(f"[{labels[sid]}]asplit={n}{outs}" if n > 1 else f"[{labels[sid]}]anull{outs}")
+        split[sid] = 0
+    for i, s in enumerate(tl.segs):
+        x = seg_src(spec, s); sid = x["id"]
+        a0, b0 = s["a"] - vod(x["start"]), s["b"] - vod(x["start"])
+        dur = b0 - a0
+        filt.append(f"[{sid}_{split[sid]}]atrim={a0:.3f}:{b0:.3f},asetpts=PTS-STARTPTS,"
+                    f"afade=t=in:d=0.02,afade=t=out:st={dur - 0.03:.3f}:d=0.03[s{i}]")
+        split[sid] += 1
+        parts.append(f"[s{i}]")
+    filt.append("".join(parts) + f"concat=n={len(parts)}:v=0:a=1[cat]")
+    filt.append("[cat]highpass=f=60,lowpass=f=15000,"
+                "acompressor=threshold=-20dB:ratio=3:attack=5:release=120:makeup=2,"
+                "loudnorm=I=-14:TP=-1.5:LRA=9,aresample=48000[out]")
+    run(["ffmpeg", "-v", "error", "-y"] + ins + ["-filter_complex", ";".join(filt),
+         "-map", "[out]", "-ac", "2", "-c:a", "pcm_s16le", f"{d}/assets/voice.wav"])
+
+
 def build_media(spec, d, tl):
+    if "sources" in spec:
+        return build_media_multi(spec, d, tl)
     os.makedirs(f"{d}/assets", exist_ok=True)
     w0 = vod(spec["windowStart"])
     run(["ffmpeg", "-v", "error", "-y", "-i", spec["src"], "-an", "-c:v", "libx264", "-preset", "medium",
@@ -165,8 +240,11 @@ def build_captions(spec, tl):
         words = kw_spans(c["t"], c.get("kw", []))
         times = word_times(words, s, e)
         if WORDS:  # word-by-word sync: align caption words in order to the isolated-voice transcript
-            got = align_words([w for w, _ in words], vod(c["s"]), vod(c["e"]))
-            times = [max(s, min(tl.map(g), e - 0.05)) if g is not None else t for g, t in zip(got, times)]
+            if c.get("wt"):  # manual word onsets when the transcript timing is known to be wrong
+                got = [vod(x) for x in c["wt"]] + [None] * (len(words) - len(c["wt"]))
+            else:
+                got = align_words([w for w, _ in words], vod(c["s"]), vod(c["e"]))
+            times = [max(s, min(tl.map(g), e - 0.05)) if g is not None else tt for g, tt in zip(got, times)]
             for j in range(1, len(times)):  # keep word pops in order
                 times[j] = max(times[j], times[j - 1] + 0.04)
         size = caption_font(c["t"])
@@ -264,6 +342,11 @@ def build_overlays(spec, tl):
         js.append(f'    tl.fromTo("#st{i}", {{ opacity: 0, scale: 2.6, rotation: -8 }}, {{ opacity: 1, scale: 1, rotation: -4, duration: 0.25, ease: "back.out(2.2)" }}, {t});')
         js.append(f'    tl.to("#st{i}", {{ scale: 1.06, duration: {round(st["d"] - 0.45, 3)}, ease: "sine.inOut" }}, {round(t + 0.25, 3)});')
         js.append(f'    tl.to("#st{i}", {{ opacity: 0, duration: 0.2 }}, {round(t + st["d"] - 0.2, 3)});')
+    for i, lb in enumerate(spec.get("labels", [])):  # chapter tag, e.g. "2H36 DE LIVE"
+        t = tl.map(lb["s"])
+        extra.append(f'      <div class="lbl" id="lb{i}">{esc(lb["t"])}</div>')
+        js.append(f'    tl.fromTo("#lb{i}", {{ opacity: 0, x: -30 }}, {{ opacity: 1, x: 0, duration: 0.2, ease: "power3.out" }}, {t});')
+        js.append(f'    tl.to("#lb{i}", {{ opacity: 0, duration: 0.15 }}, {round(t + lb.get("d", 2.0) - 0.15, 3)});')
     for i, h in enumerate(spec.get("highlights", [])):  # pulsing box around a key on-screen detail
         t = tl.map(h["s"]); x, y, w, hh = h["rect"]
         extra.append(f'      <div class="hl" id="hl{i}" data-layout-ignore style="left:{x}px;top:{y}px;width:{w}px;height:{hh}px"></div>')
@@ -273,6 +356,8 @@ def build_overlays(spec, tl):
     return f"""<template>
   <style>
     #root {{ position: absolute; inset: 0; width: {W}px; height: {H}px; pointer-events: none; }}
+    .lbl {{ position: absolute; left: 140px; top: {WIN_TOP + 24}px; padding: 10px 20px; border-radius: 12px;
+      background: #FFD400; color: #000; font-family: "Inter", sans-serif; font-weight: 900; font-size: 32px; opacity: 0; }}
     .hl {{ position: absolute; border: 9px solid #FFD400; border-radius: 22px; opacity: 0;
       box-shadow: 0 0 0 4px rgba(0,0,0,0.6), 0 0 30px rgba(255,212,0,0.7); }}
     #flash {{ position: absolute; left: 0; top: {WIN_TOP}px; width: {W}px; height: {WIN_H}px; background: #fff; opacity: 0; }}
@@ -324,14 +409,17 @@ def build_overlays(spec, tl):
 
 def build_index(spec, tl):
     D = tl.duration
-    w0 = vod(spec["windowStart"])
     bg, fg, js = [], [], []
+    multi = "sources" in spec
     for i, s in enumerate(tl.segs):
-        ms = round(s["a"] - w0, 3)
+        x = seg_src(spec, s)
+        vsrc = f"assets/{x['id']}.mp4" if multi else "assets/video.mp4"
+        bsrc = f"assets/bg_{x['id']}.mp4" if multi else "assets/bg.mp4"
+        ms = round(s["a"] - vod(x["start"]), 3)
         dur = round(s["b"] - s["a"], 3)
         t0 = round(s["t0"], 3)
         cx = s.get("cropX", 480)
-        bg.append(f'      <video id="bg{i}" class="clip bgv" src="assets/bg.mp4" data-start="{t0}" data-duration="{dur}" '
+        bg.append(f'      <video id="bg{i}" class="clip bgv" src="{bsrc}" data-start="{t0}" data-duration="{dur}" '
                   f'data-media-start="{ms}" data-track-index="0" muted playsinline></video>')
         if "panels" in s:
             # each panel crops a source rect [x,y,w,h] (1920x1080 px) into a window rect [x,y,w,h]
@@ -341,14 +429,19 @@ def build_index(spec, tl):
                 dx, dy, dw, dh = pnl["dst"]
                 sc = dw / sw
                 inner.append(
-                    f'<div class="pnl" id="p{i}_{k}" data-layout-allow-overflow style="left:{dx}px;top:{dy}px;width:{dw}px;height:{dh}px">'
-                    f'<video id="fg{i}_{k}" class="clip" src="assets/video.mp4" data-start="{t0}" data-duration="{dur}" '
+                    f'<div class="pnl{" " + pnl["cls"] if pnl.get("cls") else ""}" id="p{i}_{k}" data-layout-allow-overflow style="left:{dx}px;top:{dy}px;width:{dw}px;height:{dh}px">'
+                    f'<video id="fg{i}_{k}" class="clip" src="{vsrc}" data-start="{t0}" data-duration="{dur}" '
                     f'data-media-start="{ms}" data-track-index="{1 + k}" muted playsinline '
                     f'style="position:absolute;left:{-round(sx * sc, 1)}px;top:{-round(sy * sc, 1)}px;width:{round(1920 * sc, 1)}px;height:{round(1080 * sc, 1)}px"></video></div>')
             fg.append(f'        <div class="seg" id="sw{i}" data-layout-allow-overflow>{"".join(inner)}</div>')
+            # panel frames (e.g. the webcam inset border) only show while their segment plays
+            js.append(f'    tl.set("#sw{i}", {{ opacity: {1 if i == 0 else 0} }}, 0);')
+            if i > 0:
+                js.append(f'    tl.set("#sw{i}", {{ opacity: 1 }}, {t0});')
+            js.append(f'    tl.set("#sw{i}", {{ opacity: 0 }}, {round(t0 + dur, 3)});')
         else:
             fg.append(f'        <div class="seg" id="sw{i}" data-layout-allow-overflow><div class="pan" id="pan{i}" data-layout-allow-overflow>'
-                      f'<video id="fg{i}" class="clip fgv" src="assets/video.mp4" data-start="{t0}" data-duration="{dur}" '
+                      f'<video id="fg{i}" class="clip fgv" src="{vsrc}" data-start="{t0}" data-duration="{dur}" '
                       f'data-media-start="{ms}" data-track-index="1" muted playsinline></video></div></div>')
             js.append(f'    tl.set("#pan{i}", {{ x: {-round(cx * SCALE)} }}, 0);')
         for k in s.get("pan", []):  # [{"at": vod, "cropX": px, "dur": s}]
@@ -386,6 +479,7 @@ def build_index(spec, tl):
       .pan {{ position: absolute; top: 0; left: 0; width: {FG_W}px; height: {WIN_H}px; }}
       .fgv {{ position: absolute; top: 0; left: 0; width: {FG_W}px; height: {WIN_H}px; }}
       .pnl {{ position: absolute; overflow: hidden; }}
+      .pnl.inset {{ border: 6px solid #FFD400; border-radius: 22px; box-shadow: 0 10px 30px rgba(0,0,0,0.6); }}
     </style>
   </head>
   <body>

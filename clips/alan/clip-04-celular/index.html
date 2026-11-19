@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="pt-BR" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #000; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: #000; }
+      .bgv { position: absolute; top: 0; left: 0; width: 1080px; height: 1920px; }
+      #dim { position: absolute; inset: 0; background: rgba(0,0,0,0.5); }
+      #win { position: absolute; left: 0; top: 430px; width: 1080px; height: 900px; overflow: hidden; }
+      .seg { position: absolute; inset: 0; overflow: hidden; transform-origin: 50% 45%; }
+      .pan { position: absolute; top: 0; left: 0; width: 2160px; height: 900px; }
+      .fgv { position: absolute; top: 0; left: 0; width: 2160px; height: 900px; }
+      .pnl { position: absolute; overflow: hidden; }
+      .pnl.inset { border: 6px solid #FFD400; border-radius: 22px; box-shadow: 0 10px 30px rgba(0,0,0,0.6); }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="55.7" data-width="1080" data-height="1920" data-fps="30">
+      <video id="bg0" class="clip bgv" src="assets/bg_c4a.mp4" data-start="0.0" data-duration="19.3" data-media-start="25.4" data-track-index="0" muted playsinline></video>
+      <video id="bg1" class="clip bgv" src="assets/bg_c4b.mp4" data-start="19.3" data-duration="4.5" data-media-start="22.867" data-track-index="0" muted playsinline></video>
+      <video id="bg2" class="clip bgv" src="assets/bg_c4b.mp4" data-start="23.8" data-duration="9.2" data-media-start="99.467" data-track-index="0" muted playsinline></video>
+      <video id="bg3" class="clip bgv" src="assets/bg_c4b.mp4" data-start="33.0" data-duration="22.7" data-media-start="255.467" data-track-index="0" muted playsinline></video>
+      <div id="dim"></div>
+      <div id="win" data-layout-allow-overflow>
+        <div class="seg" id="sw0" data-layout-allow-overflow><div class="pnl" id="p0_0" data-layout-allow-overflow style="left:0px;top:0px;width:1080px;height:900px"><video id="fg0_0" class="clip" src="assets/c4a.mp4" data-start="0.0" data-duration="19.3" data-media-start="25.4" data-track-index="1" muted playsinline style="position:absolute;left:-161.7px;top:-0.0px;width:1600.0px;height:900.0px"></video></div><div class="pnl inset" id="p0_1" data-layout-allow-overflow style="left:650px;top:16px;width:414px;height:261px"><video id="fg0_1" class="clip" src="assets/c4a.mp4" data-start="0.0" data-duration="19.3" data-media-start="25.4" data-track-index="2" muted playsinline style="position:absolute;left:-1482.8px;top:-272.7px;width:1910.8px;height:1074.8px"></video></div></div>
+        <div class="seg" id="sw1" data-layout-allow-overflow><div class="pnl" id="p1_0" data-layout-allow-overflow style="left:0px;top:0px;width:1080px;height:900px"><video id="fg1_0" class="clip" src="assets/c4b.mp4" data-start="19.3" data-duration="4.5" data-media-start="22.867" data-track-index="1" muted playsinline style="position:absolute;left:-161.7px;top:-0.0px;width:1600.0px;height:900.0px"></video></div><div class="pnl inset" id="p1_1" data-layout-allow-overflow style="left:650px;top:16px;width:414px;height:261px"><video id="fg1_1" class="clip" src="assets/c4b.mp4" data-start="19.3" data-duration="4.5" data-media-start="22.867" data-track-index="2" muted playsinline style="position:absolute;left:-1482.8px;top:-272.7px;width:1910.8px;height:1074.8px"></video></div></div>
+        <div class="seg" id="sw2" data-layout-allow-overflow><div class="pnl" id="p2_0" data-layout-allow-overflow style="left:0px;top:0px;width:1080px;height:900px"><video id="fg2_0" class="clip" src="assets/c4b.mp4" data-start="23.8" data-duration="9.2" data-media-start="99.467" data-track-index="1" muted playsinline style="position:absolute;left:-161.7px;top:-0.0px;width:1600.0px;height:900.0px"></video></div><div class="pnl inset" id="p2_1" data-layout-allow-overflow style="left:650px;top:16px;width:414px;height:261px"><video id="fg2_1" class="clip" src="assets/c4b.mp4" data-start="23.8" data-duration="9.2" data-media-start="99.467" data-track-index="2" muted playsinline style="position:absolute;left:-1482.8px;top:-272.7px;width:1910.8px;height:1074.8px"></video></div></div>
+        <div class="seg" id="sw3" data-layout-allow-overflow><div class="pnl" id="p3_0" data-layout-allow-overflow style="left:0px;top:0px;width:1080px;height:900px"><video id="fg3_0" class="clip" src="assets/c4b.mp4" data-start="33.0" data-duration="22.7" data-media-start="255.467" data-track-index="1" muted playsinline style="position:absolute;left:-161.7px;top:-0.0px;width:1600.0px;height:900.0px"></video></div><div class="pnl inset" id="p3_1" data-layout-allow-overflow style="left:650px;top:16px;width:414px;height:261px"><video id="fg3_1" class="clip" src="assets/c4b.mp4" data-start="33.0" data-duration="22.7" data-media-start="255.467" data-track-index="2" muted playsinline style="position:absolute;left:-1482.8px;top:-272.7px;width:1910.8px;height:1074.8px"></video></div></div>
+      </div>
+      <div id="overlays" class="clip" data-composition-id="overlays" data-composition-src="compositions/overlays.html"
+        data-start="0" data-duration="55.7" data-track-index="3" data-track-kind="graphics" data-width="1080" data-height="1920"></div>
+      <div id="captions" class="clip" data-composition-id="captions" data-composition-src="compositions/captions.html"
+        data-start="0" data-duration="55.7" data-track-index="4" data-track-kind="captions" data-width="1080" data-height="1920"></div>
+      <audio id="voice" class="clip" src="assets/voice.wav" data-start="0" data-duration="55.7" data-track-index="5" data-volume="1"></audio>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+    tl.set("#sw0", { opacity: 1 }, 0);
+    tl.set("#sw0", { opacity: 0 }, 19.3);
+    tl.fromTo("#sw0", { scale: 1.14 }, { scale: 1, duration: 2.0, ease: "power2.out" }, 0.0);
+    tl.to("#sw0", { scale: 1.07, duration: 0.18, ease: "power3.out" }, 2.91);
+    tl.to("#sw0", { scale: 1, duration: 0.5, ease: "power2.inOut" }, 4.31);
+    tl.to("#sw0", { scale: 1.08, duration: 0.18, ease: "power3.out" }, 12.41);
+    tl.to("#sw0", { scale: 1, duration: 0.5, ease: "power2.inOut" }, 13.81);
+    tl.set("#sw1", { opacity: 0 }, 0);
+    tl.set("#sw1", { opacity: 1 }, 19.3);
+    tl.set("#sw1", { opacity: 0 }, 23.8);
+    tl.fromTo("#sw1", { scale: 1.06 }, { scale: 1, duration: 0.4, ease: "power2.out" }, 19.3);
+    tl.set("#sw2", { opacity: 0 }, 0);
+    tl.set("#sw2", { opacity: 1 }, 23.8);
+    tl.set("#sw2", { opacity: 0 }, 33.0);
+    tl.fromTo("#sw2", { scale: 1.06 }, { scale: 1, duration: 0.4, ease: "power2.out" }, 23.8);
+    tl.set("#sw3", { opacity: 0 }, 0);
+    tl.set("#sw3", { opacity: 1 }, 33.0);
+    tl.set("#sw3", { opacity: 0 }, 55.7);
+    tl.fromTo("#sw3", { scale: 1.06 }, { scale: 1, duration: 0.4, ease: "power2.out" }, 33.0);
+    tl.to("#sw3", { scale: 1.07, duration: 0.18, ease: "power3.out" }, 41.75);
+    tl.to("#sw3", { scale: 1, duration: 0.5, ease: "power2.inOut" }, 43.15);
+    tl.to("#sw3", { scale: 1.08, duration: 0.18, ease: "power3.out" }, 54.03);
+    tl.to("#sw3", { scale: 1, duration: 0.5, ease: "power2.inOut" }, 55.43);
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

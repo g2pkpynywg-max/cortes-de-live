@@ -1,0 +1,476 @@
+{
+ "id": "alan/clip-01-casa",
+ "language": "pt",
+ "wordsFile": "clips/alan/clip-01-casa/words.json",
+ "credit": "alanzoka • live de GTA 6 na Twitch",
+ "window": {
+  "top": 430,
+  "height": 900
+ },
+ "captionBottom": 1170,
+ "stampTop": 760,
+ "numTop": 760,
+ "sources": [
+  {
+   "id": "c1a",
+   "file": "work/alan/src/c1a.mov",
+   "stem": "work/alan/stems/htdemucs/c1a/vocals.wav",
+   "start": 12130.0
+  },
+  {
+   "id": "c1b",
+   "file": "work/alan/src/c1b.mov",
+   "stem": "work/alan/stems/htdemucs/c1b/vocals.wav",
+   "start": 12530.0,
+   "sfx": {
+    "stems": [
+     "work/alan/stems/htdemucs/c1b/drums.wav",
+     "work/alan/stems/htdemucs/c1b/other.wav",
+     "work/alan/stems/htdemucs/c1b/bass.wav"
+    ],
+    "gainDb": -6
+   }
+  },
+  {
+   "id": "c1c",
+   "file": "work/alan/src/c1c.mov",
+   "stem": "work/alan/stems/htdemucs/c1c/vocals.wav",
+   "start": 53550.032999999996
+  },
+  {
+   "id": "c1d",
+   "file": "work/alan/src/c1d.mov",
+   "stem": "work/alan/stems/htdemucs/c1d/vocals.wav",
+   "start": 55080.032999999996
+  }
+ ],
+ "hook": {
+  "lines": [
+   "Passou 3 HORAS",
+   "reformando a casa…"
+  ],
+  "title": [
+   "Reformou a casa por 3 HORAS… e tacaram FOGO"
+  ],
+  "kw": [
+   "HORAS",
+   "FOGO"
+  ],
+  "size": 72,
+  "titleSize": 46,
+  "top": 290,
+  "noBg": true
+ },
+ "labels": [
+  {
+   "s": "14:52:52.60",
+   "d": 2.4,
+   "t": "11 HORAS DEPOIS…"
+  },
+  {
+   "s": "15:18:18.00",
+   "d": 2.0,
+   "t": "1 HORA DEPOIS"
+  }
+ ],
+ "stamps": [
+  {
+   "s": "14:53:20.30",
+   "d": 1.6,
+   "t": "FOGO!",
+   "size": 130
+  }
+ ],
+ "segments": [
+  {
+   "src": "c1a",
+   "in": "3:22:26.00",
+   "out": "3:22:31.40",
+   "panels": [
+    {
+     "src": [
+      194,
+      0,
+      1296,
+      1080
+     ],
+     "dst": [
+      0,
+      0,
+      1080,
+      900
+     ]
+    },
+    {
+     "src": [
+      1490,
+      274,
+      416,
+      262
+     ],
+     "dst": [
+      650,
+      16,
+      414,
+      261
+     ],
+     "cls": "inset"
+    }
+   ]
+  },
+  {
+   "src": "c1b",
+   "in": "3:29:04.60",
+   "out": "3:29:23.00",
+   "panels": [
+    {
+     "src": [
+      194,
+      0,
+      1296,
+      1080
+     ],
+     "dst": [
+      0,
+      0,
+      1080,
+      900
+     ]
+    },
+    {
+     "src": [
+      1490,
+      274,
+      416,
+      262
+     ],
+     "dst": [
+      650,
+      16,
+      414,
+      261
+     ],
+     "cls": "inset"
+    }
+   ],
+   "zooms": [
+    {
+     "at": "3:29:08.24",
+     "scale": 1.07,
+     "hold": 1.4
+    }
+   ]
+  },
+  {
+   "src": "c1b",
+   "in": "3:29:26.50",
+   "out": "3:29:31.00",
+   "panels": [
+    {
+     "src": [
+      194,
+      0,
+      1296,
+      1080
+     ],
+     "dst": [
+      0,
+      0,
+      1080,
+      900
+     ]
+    },
+    {
+     "src": [
+      1490,
+      274,
+      416,
+      262
+     ],
+     "dst": [
+      650,
+      16,
+      414,
+      261
+     ],
+     "cls": "inset"
+    }
+   ]
+  },
+  {
+   "src": "c1c",
+   "in": "14:52:52.55",
+   "out": "14:52:56.30",
+   "panels": [
+    {
+     "src": [
+      194,
+      0,
+      1296,
+      1080
+     ],
+     "dst": [
+      0,
+      0,
+      1080,
+      900
+     ]
+    },
+    {
+     "src": [
+      1490,
+      274,
+      416,
+      262
+     ],
+     "dst": [
+      650,
+      16,
+      414,
+      261
+     ],
+     "cls": "inset"
+    }
+   ]
+  },
+  {
+   "src": "c1c",
+   "in": "14:53:19.80",
+   "out": "14:53:31.00",
+   "panels": [
+    {
+     "src": [
+      194,
+      0,
+      1296,
+      1080
+     ],
+     "dst": [
+      0,
+      0,
+      1080,
+      900
+     ]
+    },
+    {
+     "src": [
+      1490,
+      274,
+      416,
+      262
+     ],
+     "dst": [
+      650,
+      16,
+      414,
+      261
+     ],
+     "cls": "inset"
+    }
+   ],
+   "noFlash": true,
+   "zooms": [
+    {
+     "at": "14:53:26.39",
+     "scale": 1.07,
+     "hold": 1.6
+    }
+   ]
+  },
+  {
+   "src": "c1d",
+   "in": "15:18:17.95",
+   "out": "15:18:25.70",
+   "panels": [
+    {
+     "src": [
+      1490,
+      274,
+      416,
+      216
+     ],
+     "dst": [
+      0,
+      0,
+      1080,
+      561
+     ]
+    },
+    {
+     "src": [
+      500,
+      260,
+      1080,
+      339
+     ],
+     "dst": [
+      0,
+      561,
+      1080,
+      339
+     ]
+    }
+   ],
+   "zooms": [
+    {
+     "at": "15:18:20.52",
+     "scale": 1.06,
+     "hold": 1.6
+    }
+   ]
+  }
+ ],
+ "captions": [
+  {
+   "s": "3:22:26.21",
+   "e": "3:22:27.95",
+   "t": "Ô, minha casa tá ficando show, mano!",
+   "kw": [
+    "show"
+   ]
+  },
+  {
+   "s": "3:22:28.07",
+   "e": "3:22:31.40",
+   "t": "Olha, botou até o ventilador pra secar mais rápido a tinta, mano.",
+   "kw": [
+    "ventilador",
+    "tinta"
+   ]
+  },
+  {
+   "s": "3:29:04.78",
+   "e": "3:29:06.45",
+   "t": "Meu Deus do céu, chat, não é possível, mano,",
+   "kw": []
+  },
+  {
+   "s": "3:29:06.50",
+   "e": "3:29:08.10",
+   "t": "vou arrumar o telhado agora, mano!",
+   "kw": [
+    "telhado"
+   ]
+  },
+  {
+   "s": "3:29:08.24",
+   "e": "3:29:10.70",
+   "t": "Eu vou ficar arrumando minha casa!",
+   "kw": [
+    "casa"
+   ]
+  },
+  {
+   "s": "3:29:10.80",
+   "e": "3:29:14.40",
+   "t": "É o que eu gosto, eu gosto, pô!",
+   "kw": [
+    "gosto"
+   ]
+  },
+  {
+   "s": "3:29:14.48",
+   "e": "3:29:17.80",
+   "t": "Fazer o quê?",
+   "kw": []
+  },
+  {
+   "s": "3:29:17.88",
+   "e": "3:29:20.05",
+   "t": "É a vida, mano!",
+   "kw": [
+    "vida"
+   ]
+  },
+  {
+   "s": "3:29:20.10",
+   "e": "3:29:23.00",
+   "t": "É a vida, que jogo bom, é isso!",
+   "kw": [
+    "jogo",
+    "bom"
+   ]
+  },
+  {
+   "s": "3:29:26.66",
+   "e": "3:29:28.85",
+   "t": "Quero saber de roubar ninguém, não,",
+   "kw": [
+    "roubar"
+   ]
+  },
+  {
+   "s": "3:29:28.90",
+   "e": "3:29:31.00",
+   "t": "quero só arrumar minha casa.",
+   "kw": [
+    "arrumar",
+    "casa"
+   ]
+  },
+  {
+   "s": "14:52:52.75",
+   "e": "14:52:54.85",
+   "t": "Meu Deus! Botaram fogo na minha…",
+   "kw": [
+    "fogo"
+   ]
+  },
+  {
+   "s": "14:52:54.91",
+   "e": "14:52:56.30",
+   "t": "cara, minha cobra! Meu Deus!",
+   "kw": [
+    "cobra"
+   ]
+  },
+  {
+   "s": "14:53:26.39",
+   "e": "14:53:28.65",
+   "t": "A cobra! Minha cobra!",
+   "kw": [
+    "cobra"
+   ]
+  },
+  {
+   "s": "14:53:28.73",
+   "e": "14:53:31.00",
+   "t": "Ela vai fugir, pelo menos.",
+   "kw": [
+    "fugir"
+   ]
+  },
+  {
+   "s": "15:18:18.28",
+   "e": "15:18:20.45",
+   "t": "Eu fiquei 3 horas reformando a casa",
+   "kw": [
+    "3",
+    "horas"
+   ]
+  },
+  {
+   "s": "15:18:20.52",
+   "e": "15:18:21.95",
+   "t": "pra tacarem fogo na minha casa, mano.",
+   "kw": [
+    "fogo"
+   ]
+  },
+  {
+   "s": "15:18:22.02",
+   "e": "15:18:24.10",
+   "t": "Bizarro, velho.",
+   "kw": []
+  },
+  {
+   "s": "15:18:24.20",
+   "e": "15:18:25.70",
+   "t": "Paraíso perdido, mano.",
+   "kw": [
+    "Paraíso",
+    "perdido"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,371 @@
+{
+ "id": "alan/clip-02-flor",
+ "language": "pt",
+ "wordsFile": "clips/alan/clip-02-flor/words.json",
+ "credit": "alanzoka • live de GTA 6 na Twitch",
+ "window": {
+  "top": 430,
+  "height": 900
+ },
+ "captionBottom": 1170,
+ "stampTop": 760,
+ "numTop": 760,
+ "sources": [
+  {
+   "id": "c2",
+   "file": "work/alan/src/c2.mov",
+   "stem": "work/alan/stems/htdemucs/c2/vocals.wav",
+   "start": 18500.0
+  }
+ ],
+ "hook": {
+  "lines": [
+   "Só queria comprar",
+   "FLOR pra esposa…"
+  ],
+  "title": [
+   "Ele só queria comprar FLOR pra esposa…"
+  ],
+  "kw": [
+   "FLOR"
+  ],
+  "size": 66,
+  "titleSize": 46,
+  "top": 290,
+  "noBg": true
+ },
+ "stamps": [
+  {
+   "s": "5:09:04.07",
+   "d": 1.6,
+   "t": "8 PESSOAS!",
+   "size": 110
+  }
+ ],
+ "segments": [
+  {
+   "src": "c2",
+   "in": "5:08:40.30",
+   "out": "5:09:00.20",
+   "panels": [
+    {
+     "src": [
+      194,
+      0,
+      1296,
+      1080
+     ],
+     "dst": [
+      0,
+      0,
+      1080,
+      900
+     ]
+    },
+    {
+     "src": [
+      1490,
+      274,
+      416,
+      262
+     ],
+     "dst": [
+      650,
+      16,
+      414,
+      261
+     ],
+     "cls": "inset"
+    }
+   ],
+   "zooms": [
+    {
+     "at": "5:08:47.79",
+     "scale": 1.07,
+     "hold": 1.4
+    }
+   ]
+  },
+  {
+   "src": "c2",
+   "in": "5:09:01.55",
+   "out": "5:09:09.00",
+   "panels": [
+    {
+     "src": [
+      194,
+      0,
+      1296,
+      1080
+     ],
+     "dst": [
+      0,
+      0,
+      1080,
+      900
+     ]
+    },
+    {
+     "src": [
+      1490,
+      274,
+      416,
+      262
+     ],
+     "dst": [
+      650,
+      16,
+      414,
+      261
+     ],
+     "cls": "inset"
+    }
+   ],
+   "zooms": [
+    {
+     "at": "5:09:03.55",
+     "scale": 1.08,
+     "hold": 1.5
+    }
+   ]
+  },
+  {
+   "src": "c2",
+   "in": "5:09:44.90",
+   "out": "5:10:00.70",
+   "panels": [
+    {
+     "src": [
+      1490,
+      274,
+      416,
+      216
+     ],
+     "dst": [
+      0,
+      0,
+      1080,
+      561
+     ]
+    },
+    {
+     "src": [
+      300,
+      300,
+      1080,
+      339
+     ],
+     "dst": [
+      0,
+      561,
+      1080,
+      339
+     ]
+    }
+   ],
+   "zooms": [
+    {
+     "at": "5:09:46.55",
+     "scale": 1.06,
+     "hold": 1.4
+    },
+    {
+     "at": "5:09:56.83",
+     "scale": 1.08,
+     "hold": 1.6
+    }
+   ]
+  },
+  {
+   "src": "c2",
+   "in": "5:11:06.40",
+   "out": "5:11:15.60",
+   "panels": [
+    {
+     "src": [
+      194,
+      0,
+      1296,
+      1080
+     ],
+     "dst": [
+      0,
+      0,
+      1080,
+      900
+     ]
+    },
+    {
+     "src": [
+      1490,
+      274,
+      416,
+      262
+     ],
+     "dst": [
+      650,
+      16,
+      414,
+      261
+     ],
+     "cls": "inset"
+    }
+   ],
+   "zooms": [
+    {
+     "at": "5:11:13.32",
+     "scale": 1.08,
+     "hold": 1.6
+    }
+   ]
+  }
+ ],
+ "captions": [
+  {
+   "s": "5:08:40.47",
+   "e": "5:08:41.70",
+   "t": "Que isso, que isso?",
+   "kw": []
+  },
+  {
+   "s": "5:08:41.77",
+   "e": "5:08:47.70",
+   "t": "Polícia! Polícia! Polícia! Polícia!",
+   "kw": [
+    "Polícia"
+   ]
+  },
+  {
+   "s": "5:08:47.79",
+   "e": "5:08:50.70",
+   "t": "Meu Deus, eu atropelei alguém sem querer.",
+   "kw": [
+    "atropelei",
+    "sem",
+    "querer"
+   ]
+  },
+  {
+   "s": "5:08:50.81",
+   "e": "5:08:55.50",
+   "t": "Polícia! Meu Deus! Polícia!",
+   "kw": [
+    "Polícia"
+   ]
+  },
+  {
+   "s": "5:08:55.61",
+   "e": "5:08:58.40",
+   "t": "Nossa! Meu Deus, gente, para de entrar na frente do meu carro,",
+   "kw": [
+    "frente"
+   ]
+  },
+  {
+   "s": "5:08:58.51",
+   "e": "5:09:00.20",
+   "t": "eu vou ser preso, pelo amor de Deus!",
+   "kw": [
+    "preso"
+   ]
+  },
+  {
+   "s": "5:09:01.69",
+   "e": "5:09:03.50",
+   "t": "O cara começou a me dar tiro, eu fui fugir,",
+   "kw": [
+    "tiro"
+   ]
+  },
+  {
+   "s": "5:09:03.55",
+   "e": "5:09:05.20",
+   "t": "atropelei 8 pessoas no meio do caminho!",
+   "kw": [
+    "8",
+    "pessoas"
+   ]
+  },
+  {
+   "s": "5:09:07.47",
+   "e": "5:09:09.00",
+   "t": "Aí, agora fudeu, mano!",
+   "kw": [
+    "fudeu"
+   ]
+  },
+  {
+   "s": "5:09:45.13",
+   "e": "5:09:46.50",
+   "t": "Mano, na moral, cara,",
+   "kw": []
+  },
+  {
+   "s": "5:09:46.55",
+   "e": "5:09:48.70",
+   "t": "eu só queria comprar flor pra minha esposa.",
+   "kw": [
+    "flor",
+    "esposa"
+   ]
+  },
+  {
+   "s": "5:09:48.79",
+   "e": "5:09:50.55",
+   "t": "Daí, no meio do caminho, eu tomo uma fechada,",
+   "kw": [
+    "fechada"
+   ]
+  },
+  {
+   "s": "5:09:50.61",
+   "e": "5:09:52.40",
+   "t": "o cara me arregaça na bala.",
+   "kw": [
+    "bala"
+   ]
+  },
+  {
+   "s": "5:09:52.49",
+   "e": "5:09:55.55",
+   "t": "Eu, pra fugir, porque eu sou um cara que eu não procuro briga…",
+   "kw": [
+    "briga"
+   ]
+  },
+  {
+   "s": "5:09:55.65",
+   "e": "5:09:58.25",
+   "t": "Eu fui fugir, atropelo 8 pessoas no caminho,",
+   "kw": [
+    "8",
+    "pessoas"
+   ]
+  },
+  {
+   "s": "5:09:58.33",
+   "e": "5:10:00.70",
+   "t": "contra a minha vontade, e eu tô errado.",
+   "kw": [
+    "errado"
+   ]
+  },
+  {
+   "s": "5:11:10.92",
+   "e": "5:11:12.60",
+   "t": "Mano, isso daqui é o departamento de polícia?",
+   "kw": [
+    "polícia"
+   ]
+  },
+  {
+   "s": "5:11:12.66",
+   "e": "5:11:15.60",
+   "t": "Ah, que legal, eu atropelei 8 pessoas na frente da polícia, mano, ainda.",
+   "kw": [
+    "frente",
+    "polícia"
+   ]
+  }
+ ]
+}

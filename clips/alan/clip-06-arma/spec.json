@@ -1,0 +1,362 @@
+{
+ "id": "alan/clip-06-arma",
+ "language": "pt",
+ "wordsFile": "clips/alan/clip-06-arma/words.json",
+ "credit": "alanzoka • live de GTA 6 na Twitch",
+ "window": {
+  "top": 430,
+  "height": 900
+ },
+ "captionBottom": 1170,
+ "stampTop": 760,
+ "numTop": 760,
+ "sources": [
+  {
+   "id": "c6",
+   "file": "work/alan/src/c6.mov",
+   "stem": "work/alan/stems/htdemucs/c6/vocals.wav",
+   "start": 43550.032999999996,
+   "sfx": {
+    "stems": [
+     "work/alan/stems/htdemucs/c6/drums.wav",
+     "work/alan/stems/htdemucs/c6/other.wav",
+     "work/alan/stems/htdemucs/c6/bass.wav"
+    ],
+    "gainDb": -6
+   }
+  }
+ ],
+ "hook": {
+  "lines": [
+   "Gastou TUDO",
+   "na arma dos sonhos…"
+  ],
+  "title": [
+   "Gastou TUDO na arma dos sonhos… e esqueceu a BALA"
+  ],
+  "kw": [
+   "TUDO",
+   "BALA"
+  ],
+  "size": 64,
+  "titleSize": 44,
+  "top": 290,
+  "noBg": true
+ },
+ "stamps": [
+  {
+   "s": "12:07:09.20",
+   "d": 1.6,
+   "t": "SEM BALA!",
+   "size": 110
+  }
+ ],
+ "segments": [
+  {
+   "src": "c6",
+   "in": "12:05:57.90",
+   "out": "12:06:03.35",
+   "panels": [
+    {
+     "src": [
+      0,
+      0,
+      1296,
+      1080
+     ],
+     "dst": [
+      0,
+      0,
+      1080,
+      900
+     ]
+    },
+    {
+     "src": [
+      1490,
+      274,
+      416,
+      262
+     ],
+     "dst": [
+      650,
+      16,
+      414,
+      261
+     ],
+     "cls": "inset"
+    }
+   ]
+  },
+  {
+   "src": "c6",
+   "in": "12:06:07.15",
+   "out": "12:06:11.50",
+   "panels": [
+    {
+     "src": [
+      0,
+      0,
+      1296,
+      1080
+     ],
+     "dst": [
+      0,
+      0,
+      1080,
+      900
+     ]
+    },
+    {
+     "src": [
+      1490,
+      274,
+      416,
+      262
+     ],
+     "dst": [
+      650,
+      16,
+      414,
+      261
+     ],
+     "cls": "inset"
+    }
+   ],
+   "noFlash": true,
+   "zooms": [
+    {
+     "at": "12:06:10.39",
+     "scale": 1.06,
+     "hold": 1.0
+    }
+   ]
+  },
+  {
+   "src": "c6",
+   "in": "12:06:25.80",
+   "out": "12:06:35.20",
+   "panels": [
+    {
+     "src": [
+      0,
+      0,
+      1296,
+      1080
+     ],
+     "dst": [
+      0,
+      0,
+      1080,
+      900
+     ]
+    },
+    {
+     "src": [
+      1490,
+      274,
+      416,
+      262
+     ],
+     "dst": [
+      650,
+      16,
+      414,
+      261
+     ],
+     "cls": "inset"
+    }
+   ],
+   "zooms": [
+    {
+     "at": "12:06:32.63",
+     "scale": 1.08,
+     "hold": 1.6
+    }
+   ]
+  },
+  {
+   "src": "c6",
+   "in": "12:06:40.80",
+   "out": "12:06:47.50",
+   "panels": [
+    {
+     "src": [
+      0,
+      0,
+      1296,
+      1080
+     ],
+     "dst": [
+      0,
+      0,
+      1080,
+      900
+     ]
+    },
+    {
+     "src": [
+      1490,
+      274,
+      416,
+      262
+     ],
+     "dst": [
+      650,
+      16,
+      414,
+      261
+     ],
+     "cls": "inset"
+    }
+   ]
+  },
+  {
+   "src": "c6",
+   "in": "12:07:05.60",
+   "out": "12:07:10.80",
+   "panels": [
+    {
+     "src": [
+      0,
+      0,
+      1296,
+      1080
+     ],
+     "dst": [
+      0,
+      0,
+      1080,
+      900
+     ]
+    },
+    {
+     "src": [
+      1490,
+      274,
+      416,
+      262
+     ],
+     "dst": [
+      650,
+      16,
+      414,
+      261
+     ],
+     "cls": "inset"
+    }
+   ],
+   "zooms": [
+    {
+     "at": "12:07:09.14",
+     "scale": 1.1,
+     "hold": 1.4
+    }
+   ]
+  }
+ ],
+ "captions": [
+  {
+   "s": "12:05:58.03",
+   "e": "12:05:58.70",
+   "t": "Comprei, chat.",
+   "kw": []
+  },
+  {
+   "s": "12:05:58.75",
+   "e": "12:06:00.95",
+   "t": "Viajei aqui, perdi a mão, perdi a mão, mano.",
+   "kw": [
+    "perdi",
+    "mão"
+   ]
+  },
+  {
+   "s": "12:06:02.15",
+   "e": "12:06:03.35",
+   "t": "Viajei, viajei.",
+   "kw": [
+    "Viajei"
+   ],
+   "wt": [
+    "12:06:02.20",
+    "12:06:02.75"
+   ]
+  },
+  {
+   "s": "12:06:07.27",
+   "e": "12:06:09.85",
+   "t": "“Comprar o componente necessário”, comprei.",
+   "kw": [
+    "comprei"
+   ]
+  },
+  {
+   "s": "12:06:09.93",
+   "e": "12:06:11.50",
+   "t": "Nossa, eu tô gastando todo o meu dinheiro, mano.",
+   "kw": [
+    "dinheiro"
+   ]
+  },
+  {
+   "s": "12:06:26.01",
+   "e": "12:06:28.60",
+   "t": "Nossa, chat, eu gastei todo o meu dinheiro montando uma arma, me arrependi, mano.",
+   "kw": [
+    "arrependi"
+   ]
+  },
+  {
+   "s": "12:06:31.95",
+   "e": "12:06:33.90",
+   "t": "Cara, caralho, eu gastei todo o meu dinheiro…",
+   "kw": [
+    "todo",
+    "dinheiro"
+   ]
+  },
+  {
+   "s": "12:06:33.97",
+   "e": "12:06:35.20",
+   "t": "mas a arma ficou linda.",
+   "kw": [
+    "linda"
+   ]
+  },
+  {
+   "s": "12:06:41.11",
+   "e": "12:06:42.25",
+   "t": "Gastei literalmente todo o meu dinheiro…",
+   "kw": [
+    "literalmente"
+   ]
+  },
+  {
+   "s": "12:06:42.33",
+   "e": "12:06:44.60",
+   "t": "mas a arma ficou linda.",
+   "kw": [
+    "linda"
+   ]
+  },
+  {
+   "s": "12:07:06.64",
+   "e": "12:07:09.05",
+   "t": "Nossa, é… bala, mano, a arma…",
+   "kw": [
+    "bala"
+   ]
+  },
+  {
+   "s": "12:07:09.14",
+   "e": "12:07:10.80",
+   "t": "Eu não comprei bala, mano.",
+   "kw": [
+    "não",
+    "comprei",
+    "bala"
+   ]
+  }
+ ]
+}

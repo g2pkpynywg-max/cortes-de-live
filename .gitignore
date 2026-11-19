@@ -15,3 +15,6 @@ clips/*/.hyperframes/
 template/.hyperframes/
 clips/*/snapshots/
 __pycache__/
+clips/alan/*/assets/
+clips/alan/*/.hyperframes/
+clips/alan/*/renders/

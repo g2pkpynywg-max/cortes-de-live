@@ -1,0 +1,624 @@
+{
+ "id": "alan/clip-05-naomato",
+ "language": "pt",
+ "wordsFile": "clips/alan/clip-05-naomato/words.json",
+ "credit": "alanzoka • live de GTA 6 na Twitch",
+ "window": {
+  "top": 430,
+  "height": 900
+ },
+ "captionBottom": 1170,
+ "stampTop": 760,
+ "numTop": 760,
+ "sources": [
+  {
+   "id": "c5a",
+   "file": "work/alan/src/c5a.mov",
+   "stem": "work/alan/stems/htdemucs/c5a/vocals.wav",
+   "start": 9350.0
+  },
+  {
+   "id": "c5b",
+   "file": "work/alan/src/c5b.mov",
+   "stem": "work/alan/stems/htdemucs/c5b/vocals.wav",
+   "start": 14400.0
+  },
+  {
+   "id": "c5c",
+   "file": "work/alan/src/c5c.mov",
+   "stem": "work/alan/stems/htdemucs/c5c/vocals.wav",
+   "start": 39020.032999999996,
+   "sfx": {
+    "stems": [
+     "work/alan/stems/htdemucs/c5c/drums.wav",
+     "work/alan/stems/htdemucs/c5c/other.wav",
+     "work/alan/stems/htdemucs/c5c/bass.wav"
+    ],
+    "gainDb": -6
+   }
+  },
+  {
+   "id": "c5d",
+   "file": "work/alan/src/c5d.mov",
+   "stem": "work/alan/stems/htdemucs/c5d/vocals.wav",
+   "start": 44720.032999999996
+  },
+  {
+   "id": "c5e",
+   "file": "work/alan/src/c5e.mov",
+   "stem": "work/alan/stems/htdemucs/c5e/vocals.wav",
+   "start": 49950.032999999996
+  }
+ ],
+ "hook": {
+  "lines": [
+   "“Eu não mato",
+   "NINGUÉM nesse jogo”"
+  ],
+  "title": [
+   "“Eu não mato NINGUÉM nesse jogo”"
+  ],
+  "kw": [
+   "NINGUÉM"
+  ],
+  "size": 70,
+  "titleSize": 46,
+  "top": 290,
+  "noBg": true
+ },
+ "labels": [
+  {
+   "s": "2:36:03.85",
+   "d": 2.0,
+   "t": "2H36 DE LIVE"
+  },
+  {
+   "s": "4:01:03.35",
+   "d": 2.0,
+   "t": "4H01 DE LIVE"
+  },
+  {
+   "s": "10:50:38.45",
+   "d": 2.0,
+   "t": "10H50 DE LIVE"
+  },
+  {
+   "s": "12:25:39.65",
+   "d": 2.0,
+   "t": "12H25 DE LIVE"
+  },
+  {
+   "s": "13:52:58.55",
+   "d": 2.0,
+   "t": "13H52 DE LIVE"
+  }
+ ],
+ "stamps": [
+  {
+   "s": "13:54:12.70",
+   "d": 1.3,
+   "t": "OPS…",
+   "size": 120
+  }
+ ],
+ "segments": [
+  {
+   "src": "c5a",
+   "in": "2:36:03.80",
+   "out": "2:36:11.60",
+   "panels": [
+    {
+     "src": [
+      194,
+      0,
+      1296,
+      1080
+     ],
+     "dst": [
+      0,
+      0,
+      1080,
+      900
+     ]
+    },
+    {
+     "src": [
+      1490,
+      274,
+      416,
+      262
+     ],
+     "dst": [
+      650,
+      16,
+      414,
+      261
+     ],
+     "cls": "inset"
+    }
+   ],
+   "zooms": [
+    {
+     "at": "2:36:07.60",
+     "scale": 1.08,
+     "hold": 1.4
+    }
+   ]
+  },
+  {
+   "src": "c5b",
+   "in": "4:01:03.30",
+   "out": "4:01:16.90",
+   "panels": [
+    {
+     "src": [
+      194,
+      0,
+      1296,
+      1080
+     ],
+     "dst": [
+      0,
+      0,
+      1080,
+      900
+     ]
+    },
+    {
+     "src": [
+      1490,
+      274,
+      416,
+      262
+     ],
+     "dst": [
+      650,
+      16,
+      414,
+      261
+     ],
+     "cls": "inset"
+    }
+   ],
+   "zooms": [
+    {
+     "at": "4:01:13.00",
+     "scale": 1.08,
+     "hold": 1.4
+    }
+   ]
+  },
+  {
+   "src": "c5c",
+   "in": "10:50:38.40",
+   "out": "10:50:47.10",
+   "panels": [
+    {
+     "src": [
+      194,
+      0,
+      1296,
+      1080
+     ],
+     "dst": [
+      0,
+      0,
+      1080,
+      900
+     ]
+    },
+    {
+     "src": [
+      1490,
+      274,
+      416,
+      262
+     ],
+     "dst": [
+      650,
+      16,
+      414,
+      261
+     ],
+     "cls": "inset"
+    }
+   ],
+   "zooms": [
+    {
+     "at": "10:50:40.09",
+     "scale": 1.07,
+     "hold": 1.4
+    }
+   ]
+  },
+  {
+   "src": "c5c",
+   "in": "10:50:55.80",
+   "out": "10:50:59.10",
+   "panels": [
+    {
+     "src": [
+      194,
+      0,
+      1296,
+      1080
+     ],
+     "dst": [
+      0,
+      0,
+      1080,
+      900
+     ]
+    },
+    {
+     "src": [
+      1490,
+      274,
+      416,
+      262
+     ],
+     "dst": [
+      650,
+      16,
+      414,
+      261
+     ],
+     "cls": "inset"
+    }
+   ],
+   "noFlash": true,
+   "zooms": [
+    {
+     "at": "10:50:56.35",
+     "scale": 1.1,
+     "hold": 1.6
+    }
+   ]
+  },
+  {
+   "src": "c5d",
+   "in": "12:25:39.60",
+   "out": "12:25:49.40",
+   "panels": [
+    {
+     "src": [
+      194,
+      0,
+      1296,
+      1080
+     ],
+     "dst": [
+      0,
+      0,
+      1080,
+      900
+     ]
+    },
+    {
+     "src": [
+      1490,
+      274,
+      416,
+      262
+     ],
+     "dst": [
+      650,
+      16,
+      414,
+      261
+     ],
+     "cls": "inset"
+    }
+   ]
+  },
+  {
+   "src": "c5e",
+   "in": "13:52:58.50",
+   "out": "13:53:01.70",
+   "panels": [
+    {
+     "src": [
+      194,
+      0,
+      1296,
+      1080
+     ],
+     "dst": [
+      0,
+      0,
+      1080,
+      900
+     ]
+    },
+    {
+     "src": [
+      1490,
+      274,
+      416,
+      262
+     ],
+     "dst": [
+      650,
+      16,
+      414,
+      261
+     ],
+     "cls": "inset"
+    }
+   ]
+  },
+  {
+   "src": "c5e",
+   "in": "13:53:16.80",
+   "out": "13:53:19.60",
+   "panels": [
+    {
+     "src": [
+      194,
+      0,
+      1296,
+      1080
+     ],
+     "dst": [
+      0,
+      0,
+      1080,
+      900
+     ]
+    },
+    {
+     "src": [
+      1490,
+      274,
+      416,
+      262
+     ],
+     "dst": [
+      650,
+      16,
+      414,
+      261
+     ],
+     "cls": "inset"
+    }
+   ]
+  },
+  {
+   "src": "c5e",
+   "in": "13:54:07.40",
+   "out": "13:54:14.00",
+   "panels": [
+    {
+     "src": [
+      194,
+      0,
+      1296,
+      1080
+     ],
+     "dst": [
+      0,
+      0,
+      1080,
+      900
+     ]
+    },
+    {
+     "src": [
+      1490,
+      274,
+      416,
+      262
+     ],
+     "dst": [
+      650,
+      16,
+      414,
+      261
+     ],
+     "cls": "inset"
+    }
+   ],
+   "zooms": [
+    {
+     "at": "13:54:12.67",
+     "scale": 1.1,
+     "hold": 1.2
+    }
+   ]
+  }
+ ],
+ "captions": [
+  {
+   "s": "2:36:03.96",
+   "e": "2:36:04.85",
+   "t": "Desabilitei! Você viu?",
+   "kw": [
+    "Desabilitei"
+   ]
+  },
+  {
+   "s": "2:36:04.90",
+   "e": "2:36:05.80",
+   "t": "Eu não matei ele!",
+   "kw": [
+    "não",
+    "matei"
+   ]
+  },
+  {
+   "s": "2:36:05.84",
+   "e": "2:36:07.55",
+   "t": "Olha lá, ele ficou com o joelho doendo!",
+   "kw": [
+    "joelho"
+   ]
+  },
+  {
+   "s": "2:36:07.60",
+   "e": "2:36:11.60",
+   "t": "Mano, eu não mato ninguém nesse jogo, mano.",
+   "kw": [
+    "ninguém"
+   ]
+  },
+  {
+   "s": "4:01:03.51",
+   "e": "4:01:05.45",
+   "t": "Hostil? Eu não sou hostil!",
+   "kw": [
+    "hostil"
+   ]
+  },
+  {
+   "s": "4:01:05.49",
+   "e": "4:01:07.10",
+   "t": "Eu dei um tiro na perna dele, cara.",
+   "kw": [
+    "perna"
+   ]
+  },
+  {
+   "s": "4:01:07.17",
+   "e": "4:01:10.10",
+   "t": "Isso é hostil?",
+   "kw": [
+    "hostil"
+   ]
+  },
+  {
+   "s": "4:01:10.18",
+   "e": "4:01:12.90",
+   "t": "Meu perfil foi para hostil, mano.",
+   "kw": [
+    "hostil"
+   ]
+  },
+  {
+   "s": "4:01:13.00",
+   "e": "4:01:15.40",
+   "t": "Eu não matei ele, mano!",
+   "kw": [
+    "não",
+    "matei"
+   ]
+  },
+  {
+   "s": "4:01:15.48",
+   "e": "4:01:16.90",
+   "t": "Isso não é matar, cara.",
+   "kw": [
+    "matar"
+   ]
+  },
+  {
+   "s": "10:50:38.57",
+   "e": "10:50:43.35",
+   "t": "Eu não mato ninguém, cara, eu sou um cara honesto.",
+   "kw": [
+    "honesto"
+   ]
+  },
+  {
+   "s": "10:50:43.41",
+   "e": "10:50:45.60",
+   "t": "O cara tá vivo, ele só desmaiou.",
+   "kw": [
+    "desmaiou"
+   ]
+  },
+  {
+   "s": "10:50:45.65",
+   "e": "10:50:47.10",
+   "t": "O jogo mesmo falou: não letal.",
+   "kw": [
+    "não",
+    "letal"
+   ]
+  },
+  {
+   "s": "10:50:55.95",
+   "e": "10:50:58.10",
+   "t": "Tem mais droga por aqui pra gente pegar?",
+   "kw": [
+    "droga"
+   ]
+  },
+  {
+   "s": "10:50:58.17",
+   "e": "10:50:59.10",
+   "t": "Mano, tem mais uma aqui.",
+   "kw": [
+    "mais",
+    "uma"
+   ]
+  },
+  {
+   "s": "12:25:39.77",
+   "e": "12:25:41.65",
+   "t": "Eu não tenho essa vibe, mano.",
+   "kw": [
+    "vibe"
+   ]
+  },
+  {
+   "s": "12:25:41.69",
+   "e": "12:25:44.20",
+   "t": "Eu tenho quase 40 anos, mano.",
+   "kw": [
+    "40",
+    "anos"
+   ]
+  },
+  {
+   "s": "12:25:44.23",
+   "e": "12:25:47.45",
+   "t": "Eu não fico mais matando geral, velho.",
+   "kw": [
+    "matando",
+    "geral"
+   ]
+  },
+  {
+   "s": "12:25:47.53",
+   "e": "12:25:49.40",
+   "t": "Matava geral quando eu tinha uns 12 anos, mano.",
+   "kw": [
+    "12",
+    "anos"
+   ]
+  },
+  {
+   "s": "13:52:58.65",
+   "e": "13:53:00.20",
+   "t": "Eu não tô matando ninguém, mano.",
+   "kw": [
+    "ninguém"
+   ]
+  },
+  {
+   "s": "13:53:00.23",
+   "e": "13:53:01.70",
+   "t": "Quem tá falando que eu tô matando tá viajando.",
+   "kw": [
+    "viajando"
+   ]
+  },
+  {
+   "s": "13:53:16.93",
+   "e": "13:53:19.60",
+   "t": "Tô matando alguns, vai, não dá pra mentir também, né.",
+   "kw": [
+    "alguns"
+   ]
+  },
+  {
+   "s": "13:54:11.51",
+   "e": "13:54:14.00",
+   "t": "É chato… eu matei umas pessoas mesmo.",
+   "kw": [
+    "matei",
+    "pessoas"
+   ]
+  }
+ ]
+}

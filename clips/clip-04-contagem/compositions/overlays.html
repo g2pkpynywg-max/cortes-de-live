@@ -1,0 +1,98 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; pointer-events: none; }
+    .hl { position: absolute; border: 9px solid #FFD400; border-radius: 22px; opacity: 0;
+      box-shadow: 0 0 0 4px rgba(0,0,0,0.6), 0 0 30px rgba(255,212,0,0.7); }
+    #flash { position: absolute; left: 0; top: 430px; width: 1080px; height: 900px; background: #fff; opacity: 0; }
+    #hookbg { position: absolute; left: 0; top: 430px; width: 1080px; height: 900px;
+      background: linear-gradient(180deg, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.35) 55%, rgba(0,0,0,0) 100%); opacity: 0; }
+    #hook { position: absolute; left: 120px; width: 768px; top: 188px; text-align: center; }
+    .hkline { font-family: "Archivo Black", sans-serif; font-size: 66px; line-height: 1.05;
+      text-transform: uppercase; color: #fff; }
+    .hkw { display: inline-block; margin: 0 0.13em; -webkit-text-stroke: 12px #000; paint-order: stroke fill;
+      text-shadow: 0 8px 0 rgba(0,0,0,0.5); }
+    .hkw.kw { color: #FFD400; }
+    #title { position: absolute; left: 120px; width: 768px; top: 296px; text-align: center; opacity: 0; }
+    .tlline { font-family: "Archivo Black", sans-serif; font-size: 46px; line-height: 1.08;
+      text-transform: uppercase; color: #fff; }
+    .tlw { display: inline-block; margin: 0 0.12em; }
+    .tlw.kw { color: #FFD400; }
+    #credit { position: absolute; left: 120px; width: 768px; top: 412px; text-align: center; opacity: 0;
+      font-family: "Inter", sans-serif; font-weight: 700; font-size: 28px; letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.78); text-transform: uppercase; }
+    #barbase { position: absolute; left: 0; top: 1330px; width: 1080px; height: 8px; background: rgba(255,255,255,0.18); }
+    #bar { position: absolute; left: 0; top: 1330px; width: 1080px; height: 8px; background: #FFD400; transform-origin: 0 50%; }
+    #cutlabel { position: absolute; left: 140px; top: 460px; padding: 10px 20px; border-radius: 12px;
+      background: #FFD400; color: #000; font-family: "Inter", sans-serif; font-weight: 900; font-size: 32px; opacity: 0; }
+    .num { position: absolute; left: 120px; width: 768px; top: 850px; text-align: center; opacity: 0;
+      font-family: "Archivo Black", sans-serif; font-size: 300px; line-height: 1; color: #FFD400;
+      -webkit-text-stroke: 16px #000; paint-order: stroke fill; text-shadow: 0 14px 0 rgba(0,0,0,0.5); }
+    .stamp { position: absolute; left: 120px; width: 768px; top: 455px; text-align: center; opacity: 0;
+      font-family: "Archivo Black", sans-serif; font-size: 120px; line-height: 1; color: #FFD400;
+      -webkit-text-stroke: 14px #000; paint-order: stroke fill; text-shadow: 0 12px 0 rgba(0,0,0,0.5); }
+  </style>
+  <div id="root" data-composition-id="overlays" data-width="1080" data-height="1920" data-layout-allow-overflow data-layout-allow-overlap>
+      <div id="flash"></div>
+      <div id="hookbg"></div>
+      <div id="hook"><div class="hkline"><span class="hkw">Zerou</span><span class="hkw">o</span><span class="hkw">GTA</span><span class="hkw">6…</span></div><div class="hkline"><span class="hkw">e</span><span class="hkw">pediu</span><span class="hkw">pra</span><span class="hkw kw">COMPRAR?!</span></div></div>
+      <div id="title"><div class="tlline"><span class="tlw">O</span><span class="tlw">GTA</span><span class="tlw">6</span><span class="tlw">liberou…</span><span class="tlw">e</span><span class="tlw">pediu</span><span class="tlw">pra</span><span class="tlw kw">COMPRAR?!</span></div></div>
+      <div id="credit">bisteconee • live de GTA 6 na Twitch</div>
+      <div id="barbase"></div>
+      <div id="bar"></div>
+      <div class="num" id="n0">10</div>
+      <div class="num" id="n1">9</div>
+      <div class="num" id="n2">8</div>
+      <div class="num" id="n3">7</div>
+      <div class="num" id="n4">6</div>
+      <div class="num" id="n5">5</div>
+      <div class="num" id="n6">4</div>
+      <div class="num" id="n7">3</div>
+      <div class="num" id="n8">2</div>
+      <div class="stamp" id="st0" style="font-size:110px">COMPRAR?!</div>
+      <div class="stamp" id="st1" style="font-size:120px">ABRIU!</div>
+      <div class="hl" id="hl0" data-layout-ignore style="left:18px;top:1232px;width:372px;height:108px"></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.set("#flash", { opacity: 0 }, 0);
+    tl.fromTo(".hkw", { opacity: 0, scale: 1.6, y: 30 }, { opacity: 1, scale: 1, y: 0, duration: 0.22, ease: "back.out(2.4)", stagger: 0.07 }, 0.05);
+    tl.to("#hook", { opacity: 0, scale: 0.9, y: -120, duration: 0.25, ease: "power3.in" }, 2.05);
+    tl.to("#hookbg", { opacity: 0, duration: 0.25 }, 2.05);
+    tl.fromTo("#title", { opacity: 0, y: -24 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 2.15);
+    tl.fromTo("#credit", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 2.3);
+    tl.fromTo("#bar", { scaleX: 0 }, { scaleX: 1, duration: 51.85, ease: "none" }, 0);
+    tl.fromTo("#flash", { opacity: 0.38 }, { opacity: 0, duration: 0.18, ease: "power2.out" }, 18.40000000000009);
+    tl.fromTo("#flash", { opacity: 0.38 }, { opacity: 0, duration: 0.18, ease: "power2.out" }, 22.300000000000182);
+    tl.fromTo("#flash", { opacity: 0.38 }, { opacity: 0, duration: 0.18, ease: "power2.out" }, 31.550000000000182);
+    tl.fromTo("#flash", { opacity: 0.38 }, { opacity: 0, duration: 0.18, ease: "power2.out" }, 34.25000000000023);
+    tl.fromTo("#flash", { opacity: 0.38 }, { opacity: 0, duration: 0.18, ease: "power2.out" }, 40.55000000000018);
+    tl.fromTo("#n0", { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.18, ease: "back.out(2)" }, 1.1);
+    tl.to("#n0", { opacity: 0, scale: 0.7, duration: 0.2, ease: "power2.in" }, 1.86);
+    tl.fromTo("#n1", { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.18, ease: "back.out(2)" }, 2.06);
+    tl.to("#n1", { opacity: 0, scale: 0.7, duration: 0.2, ease: "power2.in" }, 3.04);
+    tl.fromTo("#n2", { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.18, ease: "back.out(2)" }, 3.24);
+    tl.to("#n2", { opacity: 0, scale: 0.7, duration: 0.2, ease: "power2.in" }, 3.56);
+    tl.fromTo("#n3", { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.18, ease: "back.out(2)" }, 3.76);
+    tl.to("#n3", { opacity: 0, scale: 0.7, duration: 0.2, ease: "power2.in" }, 4.82);
+    tl.fromTo("#n4", { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.18, ease: "back.out(2)" }, 5.02);
+    tl.to("#n4", { opacity: 0, scale: 0.7, duration: 0.2, ease: "power2.in" }, 6.34);
+    tl.fromTo("#n5", { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.18, ease: "back.out(2)" }, 6.54);
+    tl.to("#n5", { opacity: 0, scale: 0.7, duration: 0.2, ease: "power2.in" }, 7.48);
+    tl.fromTo("#n6", { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.18, ease: "back.out(2)" }, 7.68);
+    tl.to("#n6", { opacity: 0, scale: 0.7, duration: 0.2, ease: "power2.in" }, 8.34);
+    tl.fromTo("#n7", { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.18, ease: "back.out(2)" }, 8.54);
+    tl.to("#n7", { opacity: 0, scale: 0.7, duration: 0.2, ease: "power2.in" }, 9.32);
+    tl.fromTo("#n8", { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.18, ease: "back.out(2)" }, 9.52);
+    tl.to("#n8", { opacity: 0, scale: 0.7, duration: 0.2, ease: "power2.in" }, 10.35);
+    tl.fromTo("#st0", { opacity: 0, scale: 2.6, rotation: -8 }, { opacity: 1, scale: 1, rotation: -4, duration: 0.25, ease: "back.out(2.2)" }, 11.1);
+    tl.to("#st0", { scale: 1.06, duration: 1.45, ease: "sine.inOut" }, 11.35);
+    tl.to("#st0", { opacity: 0, duration: 0.2 }, 12.8);
+    tl.fromTo("#st1", { opacity: 0, scale: 2.6, rotation: -8 }, { opacity: 1, scale: 1, rotation: -4, duration: 0.25, ease: "back.out(2.2)" }, 32.35);
+    tl.to("#st1", { scale: 1.06, duration: 1.35, ease: "sine.inOut" }, 32.6);
+    tl.to("#st1", { opacity: 0, duration: 0.2 }, 33.95);
+    tl.fromTo("#hl0", { opacity: 0, scale: 1.5 }, { opacity: 1, scale: 1, duration: 0.22, ease: "back.out(2)" }, 12.3);
+    tl.to("#hl0", { scale: 1.06, duration: 0.3, ease: "sine.inOut", yoyo: true, repeat: 6 }, 12.52);
+    tl.to("#hl0", { opacity: 0, duration: 0.2 }, 14.7);
+    window.__timelines["overlays"] = tl;
+  </script>
+</template>

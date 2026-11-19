@@ -19,6 +19,7 @@ BG_SCALE = H / 1080
 BG_W = round(1920 * BG_SCALE)
 FPS = 30
 CAPTION_LEAD = 0.15
+WORDS = []  # optional word-level transcript on the VOD clock (spec "wordsFile")
 
 
 def hms(t):
@@ -111,6 +112,30 @@ def word_times(words, s, e):
     return out
 
 
+def align_words(cap_words, cs, ce):
+    """VOD start time of each caption word, matched in order to WORDS inside [cs-0.3, ce+0.1]."""
+    pool = [w for w in WORDS if cs - 0.3 <= w["s"] <= ce + 0.1]
+    out, k = [], 0
+    for cw in cap_words:
+        hit = None
+        for j in range(k, min(k + 3, len(pool))):
+            if norm(pool[j]["w"]).rstrip("ô") == norm(cw).rstrip("oô") or norm(pool[j]["w"]) == norm(cw):
+                hit = j
+                break
+        if hit is None:
+            out.append(None)
+        else:
+            out.append(pool[hit]["s"])
+            k = hit + 1
+    # fill gaps by interpolation between known neighbours
+    for i, v in enumerate(out):
+        if v is None:
+            prev = next((out[j] for j in range(i - 1, -1, -1) if out[j] is not None), cs)
+            nxt = next((out[j] for j in range(i + 1, len(out)) if out[j] is not None), ce)
+            out[i] = prev + (nxt - prev) * 0.5
+    return out
+
+
 def caption_font(text):
     longest = max(len(w) for w in text.split())
     n = len(text)
@@ -139,6 +164,11 @@ def build_captions(spec, tl):
             e = s + 0.25
         words = kw_spans(c["t"], c.get("kw", []))
         times = word_times(words, s, e)
+        if WORDS:  # word-by-word sync: align caption words in order to the isolated-voice transcript
+            got = align_words([w for w, _ in words], vod(c["s"]), vod(c["e"]))
+            times = [max(s, min(tl.map(g), e - 0.05)) if g is not None else t for g, t in zip(got, times)]
+            for j in range(1, len(times)):  # keep word pops in order
+                times[j] = max(times[j], times[j - 1] + 0.04)
         size = caption_font(c["t"])
         spans = "".join(
             f'<span class="w{" kw" if k else ""}" id="c{i}w{j}">{esc(w)}</span>'
@@ -158,7 +188,7 @@ def build_captions(spec, tl):
   <style>
     #root {{ position: absolute; inset: 0; width: {W}px; height: {H}px; overflow: visible; pointer-events: none; }}
     .grp {{
-      position: absolute; left: 120px; width: 660px; bottom: {H - 1240}px;
+      position: absolute; left: 120px; width: 660px; bottom: {H - spec.get('captionBottom', 1240)}px;
       text-align: center; line-height: 1.08;
       font-family: "Archivo Black", sans-serif; text-transform: uppercase; letter-spacing: 0.01em;
       opacity: 0; visibility: hidden; overflow: visible;
@@ -198,7 +228,8 @@ def build_overlays(spec, tl):
     js, extra = [], []
     # intro hook 0 -> 2.2 s, then it settles into the persistent title bar
     js.append('    tl.set("#flash", { opacity: 0 }, 0);')
-    js.append('    tl.fromTo("#hookbg", { opacity: 0 }, { opacity: 1, duration: 0.12 }, 0);')
+    if not hook.get("noBg"):
+        js.append('    tl.fromTo("#hookbg", { opacity: 0 }, { opacity: 1, duration: 0.12 }, 0);')
     js.append('    tl.fromTo(".hkw", { opacity: 0, scale: 1.6, y: 30 }, '
               '{ opacity: 1, scale: 1, y: 0, duration: 0.22, ease: "back.out(2.4)", stagger: 0.07 }, 0.05);')
     js.append('    tl.to("#hook", { opacity: 0, scale: 0.9, y: -120, duration: 0.25, ease: "power3.in" }, 2.05);')
@@ -208,6 +239,8 @@ def build_overlays(spec, tl):
     js.append(f'    tl.fromTo("#bar", {{ scaleX: 0 }}, {{ scaleX: 1, duration: {D}, ease: "none" }}, 0);')
     # flash at every jump cut
     for s in tl.segs[1:]:
+        if s.get("noFlash"):
+            continue
         t = s["t0"]
         js.append(f'    tl.fromTo("#flash", {{ opacity: 0.38 }}, {{ opacity: 0, duration: 0.18, ease: "power2.out" }}, {t});')
     for c in spec.get("cutaways", []):
@@ -227,17 +260,25 @@ def build_overlays(spec, tl):
         js.append(f'    tl.to("#n{i}", {{ opacity: 0, scale: 0.7, duration: {outd}, ease: "power2.in" }}, {round(t + nd - outd, 3)});')
     for i, st in enumerate(spec.get("stamps", [])):
         t = tl.map(st["s"])
-        extra.append(f'      <div class="stamp" id="st{i}">{esc(st["t"])}</div>')
+        extra.append(f'      <div class="stamp" id="st{i}" style="font-size:{st.get("size", 120)}px">{esc(st["t"])}</div>')
         js.append(f'    tl.fromTo("#st{i}", {{ opacity: 0, scale: 2.6, rotation: -8 }}, {{ opacity: 1, scale: 1, rotation: -4, duration: 0.25, ease: "back.out(2.2)" }}, {t});')
         js.append(f'    tl.to("#st{i}", {{ scale: 1.06, duration: {round(st["d"] - 0.45, 3)}, ease: "sine.inOut" }}, {round(t + 0.25, 3)});')
         js.append(f'    tl.to("#st{i}", {{ opacity: 0, duration: 0.2 }}, {round(t + st["d"] - 0.2, 3)});')
+    for i, h in enumerate(spec.get("highlights", [])):  # pulsing box around a key on-screen detail
+        t = tl.map(h["s"]); x, y, w, hh = h["rect"]
+        extra.append(f'      <div class="hl" id="hl{i}" data-layout-ignore style="left:{x}px;top:{y}px;width:{w}px;height:{hh}px"></div>')
+        js.append(f'    tl.fromTo("#hl{i}", {{ opacity: 0, scale: 1.5 }}, {{ opacity: 1, scale: 1, duration: 0.22, ease: "back.out(2)" }}, {t});')
+        js.append(f'    tl.to("#hl{i}", {{ scale: 1.06, duration: 0.3, ease: "sine.inOut", yoyo: true, repeat: {max(1, int(h["d"] / 0.3) - 2)} }}, {round(t + 0.22, 3)});')
+        js.append(f'    tl.to("#hl{i}", {{ opacity: 0, duration: 0.2 }}, {round(t + h["d"] - 0.2, 3)});')
     return f"""<template>
   <style>
     #root {{ position: absolute; inset: 0; width: {W}px; height: {H}px; pointer-events: none; }}
+    .hl {{ position: absolute; border: 9px solid #FFD400; border-radius: 22px; opacity: 0;
+      box-shadow: 0 0 0 4px rgba(0,0,0,0.6), 0 0 30px rgba(255,212,0,0.7); }}
     #flash {{ position: absolute; left: 0; top: {WIN_TOP}px; width: {W}px; height: {WIN_H}px; background: #fff; opacity: 0; }}
     #hookbg {{ position: absolute; left: 0; top: {WIN_TOP}px; width: {W}px; height: {WIN_H}px;
       background: linear-gradient(180deg, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.35) 55%, rgba(0,0,0,0) 100%); opacity: 0; }}
-    #hook {{ position: absolute; left: 120px; width: 768px; top: 500px; text-align: center; }}
+    #hook {{ position: absolute; left: 120px; width: 768px; top: {hook.get('top', 500)}px; text-align: center; }}
     .hkline {{ font-family: "Archivo Black", sans-serif; font-size: {hook.get('size', 92)}px; line-height: 1.05;
       text-transform: uppercase; color: #fff; }}
     .hkw {{ display: inline-block; margin: 0 0.13em; -webkit-text-stroke: 12px #000; paint-order: stroke fill;
@@ -255,10 +296,10 @@ def build_overlays(spec, tl):
     #bar {{ position: absolute; left: 0; top: {WIN_TOP + WIN_H}px; width: {W}px; height: 8px; background: #FFD400; transform-origin: 0 50%; }}
     #cutlabel {{ position: absolute; left: 140px; top: {WIN_TOP + 30}px; padding: 10px 20px; border-radius: 12px;
       background: #FFD400; color: #000; font-family: "Inter", sans-serif; font-weight: 900; font-size: 32px; opacity: 0; }}
-    .num {{ position: absolute; left: 120px; width: 768px; top: 520px; text-align: center; opacity: 0;
+    .num {{ position: absolute; left: 120px; width: 768px; top: {spec.get('numTop', 520)}px; text-align: center; opacity: 0;
       font-family: "Archivo Black", sans-serif; font-size: 300px; line-height: 1; color: #FFD400;
       -webkit-text-stroke: 16px #000; paint-order: stroke fill; text-shadow: 0 14px 0 rgba(0,0,0,0.5); }}
-    .stamp {{ position: absolute; left: 120px; width: 768px; top: 640px; text-align: center; opacity: 0;
+    .stamp {{ position: absolute; left: 120px; width: 768px; top: {spec.get('stampTop', 640)}px; text-align: center; opacity: 0;
       font-family: "Archivo Black", sans-serif; font-size: 120px; line-height: 1; color: #FFD400;
       -webkit-text-stroke: 14px #000; paint-order: stroke fill; text-shadow: 0 12px 0 rgba(0,0,0,0.5); }}
   </style>
@@ -292,16 +333,31 @@ def build_index(spec, tl):
         cx = s.get("cropX", 480)
         bg.append(f'      <video id="bg{i}" class="clip bgv" src="assets/bg.mp4" data-start="{t0}" data-duration="{dur}" '
                   f'data-media-start="{ms}" data-track-index="0" muted playsinline></video>')
-        fg.append(f'        <div class="seg" id="sw{i}" data-layout-allow-overflow><div class="pan" id="pan{i}" data-layout-allow-overflow>'
-                  f'<video id="fg{i}" class="clip fgv" src="assets/video.mp4" data-start="{t0}" data-duration="{dur}" '
-                  f'data-media-start="{ms}" data-track-index="1" muted playsinline></video></div></div>')
-        js.append(f'    tl.set("#pan{i}", {{ x: {-round(cx * SCALE)} }}, 0);')
+        if "panels" in s:
+            # each panel crops a source rect [x,y,w,h] (1920x1080 px) into a window rect [x,y,w,h]
+            inner = []
+            for k, pnl in enumerate(s["panels"]):
+                sx, sy, sw, sh = pnl["src"]
+                dx, dy, dw, dh = pnl["dst"]
+                sc = dw / sw
+                inner.append(
+                    f'<div class="pnl" id="p{i}_{k}" data-layout-allow-overflow style="left:{dx}px;top:{dy}px;width:{dw}px;height:{dh}px">'
+                    f'<video id="fg{i}_{k}" class="clip" src="assets/video.mp4" data-start="{t0}" data-duration="{dur}" '
+                    f'data-media-start="{ms}" data-track-index="{1 + k}" muted playsinline '
+                    f'style="position:absolute;left:{-round(sx * sc, 1)}px;top:{-round(sy * sc, 1)}px;width:{round(1920 * sc, 1)}px;height:{round(1080 * sc, 1)}px"></video></div>')
+            fg.append(f'        <div class="seg" id="sw{i}" data-layout-allow-overflow>{"".join(inner)}</div>')
+        else:
+            fg.append(f'        <div class="seg" id="sw{i}" data-layout-allow-overflow><div class="pan" id="pan{i}" data-layout-allow-overflow>'
+                      f'<video id="fg{i}" class="clip fgv" src="assets/video.mp4" data-start="{t0}" data-duration="{dur}" '
+                      f'data-media-start="{ms}" data-track-index="1" muted playsinline></video></div></div>')
+            js.append(f'    tl.set("#pan{i}", {{ x: {-round(cx * SCALE)} }}, 0);')
         for k in s.get("pan", []):  # [{"at": vod, "cropX": px, "dur": s}]
             js.append(f'    tl.to("#pan{i}", {{ x: {-round(k["cropX"] * SCALE)}, duration: {k.get("dur", 0.6)}, ease: "power2.inOut" }}, {tl.map(k["at"])});')
         # punch-in at the start of every segment (bigger one on the opening shot)
         p = 1.14 if i == 0 else 1.06
         pd = 2.0 if i == 0 else 0.4
-        js.append(f'    tl.fromTo("#sw{i}", {{ scale: {p} }}, {{ scale: 1, duration: {pd}, ease: "power2.out" }}, {t0});')
+        if not s.get("noPunch"):
+            js.append(f'    tl.fromTo("#sw{i}", {{ scale: {p} }}, {{ scale: 1, duration: {pd}, ease: "power2.out" }}, {t0});')
         for z in s.get("zooms", []):  # emphasis punch-ins: {"at": vod, "scale": 1.12, "hold": 1.0}
             t = tl.map(z["at"])
             js.append(f'    tl.to("#sw{i}", {{ scale: {z.get("scale", 1.1)}, duration: 0.18, ease: "power3.out" }}, {t});')
@@ -329,6 +385,7 @@ def build_index(spec, tl):
       .seg {{ position: absolute; inset: 0; overflow: hidden; transform-origin: 50% 45%; }}
       .pan {{ position: absolute; top: 0; left: 0; width: {FG_W}px; height: {WIN_H}px; }}
       .fgv {{ position: absolute; top: 0; left: 0; width: {FG_W}px; height: {WIN_H}px; }}
+      .pnl {{ position: absolute; overflow: hidden; }}
     </style>
   </head>
   <body>
@@ -355,13 +412,18 @@ def build_index(spec, tl):
 
 
 def main():
+    global WIN_TOP, WIN_H
     spec_path = sys.argv[1]
     d = os.path.dirname(spec_path)
     spec = json.load(open(spec_path))
+    if "window" in spec:  # optional per-clip foreground window
+        WIN_TOP, WIN_H = spec["window"]["top"], spec["window"]["height"]
     tl = Timeline(spec["segments"])
     if "--media" in sys.argv:
         build_media(spec, d, tl)
     os.makedirs(f"{d}/compositions", exist_ok=True)
+    if spec.get("wordsFile"):
+        WORDS.extend(json.load(open(spec["wordsFile"])))
     open(f"{d}/index.html", "w").write(build_index(spec, tl))
     open(f"{d}/compositions/overlays.html", "w").write(build_overlays(spec, tl))
     open(f"{d}/compositions/captions.html", "w").write(build_captions(spec, tl))

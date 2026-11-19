@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="pt-BR" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #000; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: #000; }
+      .bgv { position: absolute; top: 0; left: 0; width: 1080px; height: 1920px; }
+      #dim { position: absolute; inset: 0; background: rgba(0,0,0,0.5); }
+      #win { position: absolute; left: 0; top: 430px; width: 1080px; height: 900px; overflow: hidden; }
+      .seg { position: absolute; inset: 0; overflow: hidden; transform-origin: 50% 45%; }
+      .pan { position: absolute; top: 0; left: 0; width: 2160px; height: 900px; }
+      .fgv { position: absolute; top: 0; left: 0; width: 2160px; height: 900px; }
+      .pnl { position: absolute; overflow: hidden; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="51.85" data-width="1080" data-height="1920" data-fps="30">
+      <video id="bg0" class="clip bgv" src="assets/bg.mp4" data-start="0.0" data-duration="11.0" data-media-start="64.3" data-track-index="0" muted playsinline></video>
+      <video id="bg1" class="clip bgv" src="assets/bg.mp4" data-start="11.0" data-duration="7.4" data-media-start="75.3" data-track-index="0" muted playsinline></video>
+      <video id="bg2" class="clip bgv" src="assets/bg.mp4" data-start="18.4" data-duration="3.9" data-media-start="111.1" data-track-index="0" muted playsinline></video>
+      <video id="bg3" class="clip bgv" src="assets/bg.mp4" data-start="22.3" data-duration="7.75" data-media-start="117.95" data-track-index="0" muted playsinline></video>
+      <video id="bg4" class="clip bgv" src="assets/bg.mp4" data-start="30.05" data-duration="0.7" data-media-start="125.7" data-track-index="0" muted playsinline></video>
+      <video id="bg5" class="clip bgv" src="assets/bg.mp4" data-start="30.75" data-duration="0.8" data-media-start="126.4" data-track-index="0" muted playsinline></video>
+      <video id="bg6" class="clip bgv" src="assets/bg.mp4" data-start="31.55" data-duration="0.75" data-media-start="133.0" data-track-index="0" muted playsinline></video>
+      <video id="bg7" class="clip bgv" src="assets/bg.mp4" data-start="32.3" data-duration="1.95" data-media-start="133.75" data-track-index="0" muted playsinline></video>
+      <video id="bg8" class="clip bgv" src="assets/bg.mp4" data-start="34.25" data-duration="6.3" data-media-start="143.8" data-track-index="0" muted playsinline></video>
+      <video id="bg9" class="clip bgv" src="assets/bg.mp4" data-start="40.55" data-duration="3.4" data-media-start="155.55" data-track-index="0" muted playsinline></video>
+      <video id="bg10" class="clip bgv" src="assets/bg.mp4" data-start="43.95" data-duration="7.9" data-media-start="160.8" data-track-index="0" muted playsinline></video>
+      <div id="dim"></div>
+      <div id="win" data-layout-allow-overflow>
+        <div class="seg" id="sw0" data-layout-allow-overflow><div class="pnl" id="p0_0" data-layout-allow-overflow style="left:0px;top:0px;width:1080px;height:520px"><video id="fg0_0" class="clip" src="assets/video.mp4" data-start="0.0" data-duration="11.0" data-media-start="64.3" data-track-index="1" muted playsinline style="position:absolute;left:-2061.8px;top:-392.7px;width:3141.8px;height:1767.3px"></video></div><div class="pnl" id="p0_1" data-layout-allow-overflow style="left:0px;top:520px;width:1080px;height:380px"><video id="fg0_1" class="clip" src="assets/video.mp4" data-start="0.0" data-duration="11.0" data-media-start="64.3" data-track-index="2" muted playsinline style="position:absolute;left:-1091.4px;top:-795.8px;width:2182.7px;height:1227.8px"></video></div></div>
+        <div class="seg" id="sw1" data-layout-allow-overflow><div class="pnl" id="p1_0" data-layout-allow-overflow style="left:0px;top:0px;width:1080px;height:520px"><video id="fg1_0" class="clip" src="assets/video.mp4" data-start="11.0" data-duration="7.4" data-media-start="75.3" data-track-index="1" muted playsinline style="position:absolute;left:-2061.8px;top:-392.7px;width:3141.8px;height:1767.3px"></video></div><div class="pnl" id="p1_1" data-layout-allow-overflow style="left:0px;top:520px;width:1080px;height:380px"><video id="fg1_1" class="clip" src="assets/video.mp4" data-start="11.0" data-duration="7.4" data-media-start="75.3" data-track-index="2" muted playsinline style="position:absolute;left:-142.6px;top:-560.4px;width:1956.2px;height:1100.4px"></video></div></div>
+        <div class="seg" id="sw2" data-layout-allow-overflow><div class="pnl" id="p2_0" data-layout-allow-overflow style="left:0px;top:0px;width:1080px;height:520px"><video id="fg2_0" class="clip" src="assets/video.mp4" data-start="18.4" data-duration="3.9" data-media-start="111.1" data-track-index="1" muted playsinline style="position:absolute;left:-2061.8px;top:-392.7px;width:3141.8px;height:1767.3px"></video></div><div class="pnl" id="p2_1" data-layout-allow-overflow style="left:0px;top:520px;width:1080px;height:380px"><video id="fg2_1" class="clip" src="assets/video.mp4" data-start="18.4" data-duration="3.9" data-media-start="111.1" data-track-index="2" muted playsinline style="position:absolute;left:-142.6px;top:-560.4px;width:1956.2px;height:1100.4px"></video></div></div>
+        <div class="seg" id="sw3" data-layout-allow-overflow><div class="pnl" id="p3_0" data-layout-allow-overflow style="left:0px;top:0px;width:1080px;height:520px"><video id="fg3_0" class="clip" src="assets/video.mp4" data-start="22.3" data-duration="7.75" data-media-start="117.95" data-track-index="1" muted playsinline style="position:absolute;left:-2061.8px;top:-258.5px;width:3141.8px;height:1767.3px"></video></div><div class="pnl" id="p3_1" data-layout-allow-overflow style="left:0px;top:520px;width:1080px;height:380px"><video id="fg3_1" class="clip" src="assets/video.mp4" data-start="22.3" data-duration="7.75" data-media-start="117.95" data-track-index="2" muted playsinline style="position:absolute;left:-142.6px;top:-560.4px;width:1956.2px;height:1100.4px"></video></div></div>
+        <div class="seg" id="sw4" data-layout-allow-overflow><div class="pnl" id="p4_0" data-layout-allow-overflow style="left:0px;top:0px;width:1080px;height:520px"><video id="fg4_0" class="clip" src="assets/video.mp4" data-start="30.05" data-duration="0.7" data-media-start="125.7" data-track-index="1" muted playsinline style="position:absolute;left:-2061.8px;top:-258.5px;width:3141.8px;height:1767.3px"></video></div><div class="pnl" id="p4_1" data-layout-allow-overflow style="left:0px;top:520px;width:1080px;height:380px"><video id="fg4_1" class="clip" src="assets/video.mp4" data-start="30.05" data-duration="0.7" data-media-start="125.7" data-track-index="2" muted playsinline style="position:absolute;left:-385.7px;top:-173.6px;width:1851.4px;height:1041.4px"></video></div></div>
+        <div class="seg" id="sw5" data-layout-allow-overflow><div class="pnl" id="p5_0" data-layout-allow-overflow style="left:0px;top:0px;width:1080px;height:900px"><video id="fg5_0" class="clip" src="assets/video.mp4" data-start="30.75" data-duration="0.8" data-media-start="126.4" data-track-index="1" muted playsinline style="position:absolute;left:-358.3px;top:-0.0px;width:1600.0px;height:900.0px"></video></div></div>
+        <div class="seg" id="sw6" data-layout-allow-overflow><div class="pnl" id="p6_0" data-layout-allow-overflow style="left:0px;top:0px;width:1080px;height:900px"><video id="fg6_0" class="clip" src="assets/video.mp4" data-start="31.55" data-duration="0.75" data-media-start="133.0" data-track-index="1" muted playsinline style="position:absolute;left:-358.3px;top:-0.0px;width:1600.0px;height:900.0px"></video></div></div>
+        <div class="seg" id="sw7" data-layout-allow-overflow><div class="pnl" id="p7_0" data-layout-allow-overflow style="left:0px;top:0px;width:1080px;height:520px"><video id="fg7_0" class="clip" src="assets/video.mp4" data-start="32.3" data-duration="1.95" data-media-start="133.75" data-track-index="1" muted playsinline style="position:absolute;left:-2061.8px;top:-392.7px;width:3141.8px;height:1767.3px"></video></div><div class="pnl" id="p7_1" data-layout-allow-overflow style="left:0px;top:520px;width:1080px;height:380px"><video id="fg7_1" class="clip" src="assets/video.mp4" data-start="32.3" data-duration="1.95" data-media-start="133.75" data-track-index="2" muted playsinline style="position:absolute;left:-366.4px;top:-289.3px;width:1851.4px;height:1041.4px"></video></div></div>
+        <div class="seg" id="sw8" data-layout-allow-overflow><div class="pnl" id="p8_0" data-layout-allow-overflow style="left:0px;top:0px;width:1080px;height:900px"><video id="fg8_0" class="clip" src="assets/video.mp4" data-start="34.25" data-duration="6.3" data-media-start="143.8" data-track-index="1" muted playsinline style="position:absolute;left:-2858.8px;top:-334.6px;width:4065.9px;height:2287.1px"></video></div></div>
+        <div class="seg" id="sw9" data-layout-allow-overflow><div class="pnl" id="p9_0" data-layout-allow-overflow style="left:0px;top:0px;width:1080px;height:900px"><video id="fg9_0" class="clip" src="assets/video.mp4" data-start="40.55" data-duration="3.4" data-media-start="155.55" data-track-index="1" muted playsinline style="position:absolute;left:-2858.8px;top:-334.6px;width:4065.9px;height:2287.1px"></video></div></div>
+        <div class="seg" id="sw10" data-layout-allow-overflow><div class="pnl" id="p10_0" data-layout-allow-overflow style="left:0px;top:0px;width:1080px;height:900px"><video id="fg10_0" class="clip" src="assets/video.mp4" data-start="43.95" data-duration="7.9" data-media-start="160.8" data-track-index="1" muted playsinline style="position:absolute;left:-780.9px;top:-516.2px;width:2541.2px;height:1429.4px"></video></div></div>
+      </div>
+      <div id="overlays" class="clip" data-composition-id="overlays" data-composition-src="compositions/overlays.html"
+        data-start="0" data-duration="51.85" data-track-index="3" data-track-kind="graphics" data-width="1080" data-height="1920"></div>
+      <div id="captions" class="clip" data-composition-id="captions" data-composition-src="compositions/captions.html"
+        data-start="0" data-duration="51.85" data-track-index="4" data-track-kind="captions" data-width="1080" data-height="1920"></div>
+      <audio id="voice" class="clip" src="assets/voice.wav" data-start="0" data-duration="51.85" data-track-index="5" data-volume="1"></audio>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#sw0", { scale: 1.14 }, { scale: 1, duration: 2.0, ease: "power2.out" }, 0.0);
+    tl.to("#sw1", { scale: 1.06, duration: 0.18, ease: "power3.out" }, 13.88);
+    tl.to("#sw1", { scale: 1, duration: 0.5, ease: "power2.inOut" }, 15.48);
+    tl.fromTo("#sw2", { scale: 1.06 }, { scale: 1, duration: 0.4, ease: "power2.out" }, 18.4);
+    tl.fromTo("#sw3", { scale: 1.06 }, { scale: 1, duration: 0.4, ease: "power2.out" }, 22.3);
+    tl.to("#sw3", { scale: 1.07, duration: 0.18, ease: "power3.out" }, 24.63);
+    tl.to("#sw3", { scale: 1, duration: 0.5, ease: "power2.inOut" }, 25.83);
+    tl.fromTo("#sw6", { scale: 1.06 }, { scale: 1, duration: 0.4, ease: "power2.out" }, 31.55);
+    tl.fromTo("#sw8", { scale: 1.06 }, { scale: 1, duration: 0.4, ease: "power2.out" }, 34.25);
+    tl.to("#sw8", { scale: 1.08, duration: 0.18, ease: "power3.out" }, 35.67);
+    tl.to("#sw8", { scale: 1, duration: 0.5, ease: "power2.inOut" }, 37.07);
+    tl.fromTo("#sw9", { scale: 1.06 }, { scale: 1, duration: 0.4, ease: "power2.out" }, 40.55);
+    tl.to("#sw10", { scale: 1.1, duration: 0.18, ease: "power3.out" }, 50.63);
+    tl.to("#sw10", { scale: 1, duration: 0.5, ease: "power2.inOut" }, 51.83);
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

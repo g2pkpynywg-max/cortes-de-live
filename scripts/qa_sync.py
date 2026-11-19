@@ -9,7 +9,7 @@ tl = Timeline(spec['segments'])
 pcm = subprocess.run(["ffmpeg","-v","error","-i",f"{d}/assets/voice.wav","-ac","1","-ar","16000","-f","s16le","-"],capture_output=True,check=True).stdout
 a = np.frombuffer(pcm, dtype=np.int16).astype(np.float32)/32768
 m = WhisperModel("small", device="cpu", compute_type="int8")
-segs, _ = m.transcribe(a, language="en", word_timestamps=True, beam_size=5)
+segs, _ = m.transcribe(a, language=spec.get("language", "en"), word_timestamps=True, beam_size=5)
 words = [(w.start, w.end, w.word.strip()) for s in segs for w in s.words]
 dur = len(a)/16000
 caps = [(tl.map(c['s']), tl.map(c['e']), c['t']) for c in spec['captions']]

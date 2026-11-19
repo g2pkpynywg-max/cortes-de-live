@@ -7,7 +7,7 @@ h, m, s = w0.split(':'); w0 = int(h)*3600+int(m)*60+float(s)
 pcm = subprocess.run(["ffmpeg","-v","error","-i",src,"-ac","1","-ar","16000","-f","s16le","-"],capture_output=True,check=True).stdout
 a = np.frombuffer(pcm, dtype=np.int16).astype(np.float32)/32768
 m = WhisperModel("medium", device="cpu", compute_type="int8", cpu_threads=4)
-segs, _ = m.transcribe(a, language="en", word_timestamps=True, vad_filter=False, beam_size=5)
+segs, _ = m.transcribe(a, language=(sys.argv[4] if len(sys.argv) > 4 else "en"), word_timestamps=True, vad_filter=False, beam_size=5)
 words = [{"w": w.word.strip(), "s": round(w0+w.start,2), "e": round(w0+w.end,2), "p": round(w.probability,2)} for sg in segs for w in sg.words]
 json.dump(words, open(out,"w"), ensure_ascii=False, indent=0)
 def f(x): return f"{int(x//3600)}:{int(x%3600//60):02d}:{x%60:05.2f}"

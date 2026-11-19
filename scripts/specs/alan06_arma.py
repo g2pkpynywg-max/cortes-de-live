@@ -27,7 +27,7 @@ caps = [
 ]
 write("alan/clip-06-arma", {
     "sources": [source("c6", sfx=-6)],
-    "hook": {"lines": ["Gastou TUDO", "na arma dos sonhos…"], "title": ["Gastou TUDO na arma dos sonhos… e esqueceu a BALA"],
+    "hook": {"lines": ["Gastou TUDO", "na arma dos sonhos…"], "title": ["Gastou TUDO na arma… e esqueceu a BALA"],
              "kw": ["TUDO", "BALA"], "size": 64, "titleSize": 44, "top": 290, "noBg": True},
     "stamps": [{"s": "12:07:09.20", "d": 1.6, "t": "SEM BALA!", "size": 110}],
     "segments": segs, "captions": caps,
